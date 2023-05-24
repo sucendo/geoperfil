@@ -65,6 +65,3 @@ function checkAnswers() {
   const resultMessage = `Obtuviste ${correctCount} respuestas correctas de ${questions.length}.`;
   alert(resultMessage);
 }
-
-// Exportar la función loadQuiz para poder utilizarla en main.js
-export { loadQuiz };
