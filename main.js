@@ -14,11 +14,6 @@ function navigateTo(page) {
   }
 }
 
-// Función para cargar el contenido del quiz
-/*function loadQuiz(container) {
-  container.innerHTML = '<h2>Quiz</h2><p>Contenido del quiz...</p>';
-}*/
-
 // Manejo de eventos de navegación
 document.addEventListener('DOMContentLoaded', function() {
   const links = document.querySelectorAll('nav a');
