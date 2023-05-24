@@ -39,36 +39,11 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
-h1,
-h2 {
+h1, h2 {
   color: #fff;
-  margin-top: 0;
-  margin-bottom: 10px;
 }
 
 p {
   color: #ccc;
   line-height: 1.5;
-}
-
-/* Estilos responsive */
-@media screen and (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-
-  nav {
-    text-align: center;
-  }
-
-  nav a {
-    margin-right: 0;
-    margin-bottom: 5px;
-  }
-}
-
-/* Estilos con márgenes izquierdo y derecho */
-.container {
-  margin-right: 20px;
-  margin-left: 20px;
 }
