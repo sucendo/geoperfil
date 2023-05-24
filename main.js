@@ -4,7 +4,9 @@ function navigateTo(page) {
   if (page === 'home') {
     root.innerHTML = '<h1>Hola desde JavaScript</h1>';
   } else if (page === 'about') {
-    root.innerHTML = '<h2>Acerca de</h2><p>Esta es la página de Acerca de.</p>';
+    root.innerHTML = '<h2>Acerca de</h2><p>Esta es la página de Acerca de...</p>';
+  } else if (page === 'about') {
+    root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto.</p>';
   }
 }
 
