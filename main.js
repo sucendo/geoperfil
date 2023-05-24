@@ -16,14 +16,7 @@ function navigateTo(page) {
 
 // Función para cargar el contenido del quiz
 function loadQuiz(container) {
-  const quizHTML = `
-    <section>
-      <h2>Quiz</h2>
-      <!-- Aquí va el contenido HTML del quiz -->
-    </section>
-  `;
-  container.innerHTML = quizHTML;
-  // Puedes agregar el código del quiz aquí
+  container.innerHTML = '<h2>Quiz</h2><p>Contenido del quiz...</p>';
 }
 
 // Manejo de eventos de navegación
