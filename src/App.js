@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Link } from '@reach/router';
 import Home from './components/Home';
 import About from './components/About';
+import './App.css';
 
 const App = () => {
   return (
