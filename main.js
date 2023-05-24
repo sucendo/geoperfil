@@ -1,10 +1,16 @@
+import { loadHome, loadAbout, loadContact } from './pages.js';
+
 // Función para cambiar de página
 function navigateTo(page) {
   const root = document.getElementById('root');
+  root.innerHTML = '';
+
   if (page === 'home') {
-    root.innerHTML = '<h1>Hola desde JavaScript</h1>';
+    loadHome(root);
   } else if (page === 'about') {
-    root.innerHTML = '<h2>Acerca de</h2><p>Esta es la página de Acerca de.</p>';
+    loadAbout(root);
+  } else if (page === 'contact') {
+    loadContact(root);
   }
 }
 
