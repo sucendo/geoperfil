@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <h1>Hola desde React en GitHub Pages</h1>
+      <h1>Hola desde React con Reach Router</h1>
     </div>
   );
 };
