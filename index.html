@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Proyecto Geoperfil</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Quiz App</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
-    <a href="#" data-page="home">Inicio</a>
-    <a href="#" data-page="about">Acerca de</a>    
-    <a href="#" data-page="quiz">Quiz</a>
-    <a href="#" data-page="contact">Contacto</a>
+    <ul>
+      <li><a href="#" data-page="home">Inicio</a></li>
+      <li><a href="#" data-page="about">Acerca de</a></li>
+      <li><a href="#" data-page="quiz">Quiz</a></li>
+      <li><a href="#" data-page="contact">Contacto</a></li>
+    </ul>
   </nav>
-  <div id="root" class="container"></div>
 
+  <div id="root">
+    <h1>Hola amig@</h1>
+  </div>
+
+  <script src="questions.js"></script>
   <script src="main.js"></script>
-  <script src="quiz.js"></script>
 </body>
 </html>
