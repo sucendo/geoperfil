@@ -250,9 +250,12 @@ const questions = [
 // Función para cargar el contenido del quiz en el contenedor
 function loadQuiz(container) {
   container.innerHTML = '';
+  
+  // Ordenar las preguntas aleatoriamente
+  const shuffledQuestions = shuffleArray(questions);
 
-  // Generar las preguntas y opciones del quiz
-  questions.forEach(function(question, index) {
+  // Recorrer las preguntas y mostrar una por una
+  shuffledQuestions.forEach(function(question, index) {
     const questionElement = document.createElement('div');
     questionElement.classList.add('question');
     questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
@@ -294,4 +297,13 @@ function checkAnswers() {
 
   const resultMessage = `Obtuviste ${correctCount} respuestas correctas de ${questions.length}.`;
   alert(resultMessage);
+}
+
+// Función para mezclar un array en orden aleatorio
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
