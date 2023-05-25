@@ -94,6 +94,156 @@ const questions = [
     question: '¿Cuál es el metal líquido a temperatura ambiente?',
     options: ['Mercurio', 'Plomo', 'Cobre', 'Estaño'],
     correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el país más grande del mundo en términos de superficie?',
+    options: ['Rusia', 'China', 'Estados Unidos', 'Canadá'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el metal más ligero?',
+    options: ['Aluminio', 'Plata', 'Titanio', 'Cobre'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿En qué año comenzó la Segunda Guerra Mundial?',
+    options: ['1939', '1941', '1945', '1947'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el instrumento musical más grande de la orquesta?',
+    options: ['Contrabajo', 'Trombón', 'Tuba', 'Violonchelo'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuál es la velocidad de la luz en el vacío?',
+    options: ['299,792,458 metros por segundo', '300,000,000 metros por segundo', '280,000,000 metros por segundo', '310,000,000 metros por segundo'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el único mamífero capaz de volar?',
+    options: ['Murciélago', 'Ardilla', 'Pájaro carpintero', 'Pterodáctilo'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿En qué año se fundó la empresa Apple?',
+    options: ['1976', '1984', '1991', '2001'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el elemento químico con el símbolo "Fe"?',
+    options: ['Hierro', 'Plomo', 'Cobre', 'Estaño'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la capital de Japón?',
+    options: ['Tokio', 'Kioto', 'Osaka', 'Hiroshima'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el autor de la obra "Hamlet"?',
+    options: ['William Shakespeare', 'Friedrich Nietzsche', 'Charles Dickens', 'Jane Austen'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el río más largo de África?',
+    options: ['Nilo', 'Congo', 'Zambeze', 'Níger'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el elemento químico más abundante en el universo?',
+    options: ['Hidrógeno', 'Oxígeno', 'Helio', 'Carbono'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la capital de Argentina?',
+    options: ['Buenos Aires', 'Córdoba', 'Rosario', 'Mendoza'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el pintor famoso del período renacentista italiano conocido como "El Divino"?',
+    options: ['Rafael', 'Miguel Ángel', 'Leonardo da Vinci', 'Donatello'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿En qué año Neil Armstrong pisó la Luna por primera vez?',
+    options: ['1969', '1971', '1967', '1973'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la montaña más alta de África?',
+    options: ['Kilimanjaro', 'Everest', 'Aconcagua', 'Denali'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la moneda oficial de México?',
+    options: ['Peso', 'Dólar', 'Euro', 'Yen'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién escribió la famosa novela "1984"?',
+    options: ['George Orwell', 'Ray Bradbury', 'Aldous Huxley', 'Fyodor Dostoyevsky'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el hueso más largo del cuerpo humano?',
+    options: ['Fémur', 'Húmero', 'Tibia', 'Radio'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el país más pequeño del mundo?',
+    options: ['Ciudad del Vaticano', 'Mónaco', 'Nauru', 'Tuvalu'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el desierto más grande del mundo?',
+    options: ['Sahara', 'Gobi', 'Kalahari', 'Atacama'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el escritor de la novela "Moby-Dick"?',
+    options: ['Herman Melville', 'Mark Twain', 'Jules Verne', 'Charles Dickens'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿En qué año se inauguró el Canal de Panamá?',
+    options: ['1914', '1905', '1921', '1930'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el metal precioso más valioso?',
+    options: ['Oro', 'Plata', 'Platino', 'Paladio'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el país más pequeño de América del Sur?',
+    options: ['Surinam', 'Uruguay', 'Guyana', 'Surinam'],
+    correctAnswer: 1
+  },
+  {
+    question: '¿Quién escribió "Crimen y castigo"?',
+    options: ['Fyodor Dostoyevsky', 'Leo Tolstoy', 'Anton Chekhov', 'Ivan Turgenev'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el océano más profundo del mundo?',
+    options: ['Océano Pacífico', 'Océano Atlántico', 'Océano Índico', 'Océano Ártico'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la capital de Sudáfrica?',
+    options: ['Pretoria', 'Ciudad del Cabo', 'Bloemfontein', 'Johannesburgo'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el autor de "Los tres mosqueteros"?',
+    options: ['Alexandre Dumas', 'Victor Hugo', 'Gustave Flaubert', 'Émile Zola'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el elemento químico con el símbolo "K"?',
+    options: ['Potasio', 'Sodio', 'Calcio', 'Magnesio'],
+    correctAnswer: 0
   }
 ];
 
