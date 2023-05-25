@@ -254,21 +254,20 @@ quizContainer.classList.add('quiz-container');
 root.appendChild(quizContainer);
 
 let currentQuestionIndex = 0; // Índice de la pregunta actual
-const totalQuestions = 10; // Número total de preguntas
+let remainingQuestions = 10; // Número de preguntas restantes
 
 // Función para iniciar el juego
 function startGame() {
+  allQuestions.forEach((question) => {
+    question.used = false;
+  });
   currentQuestionIndex = 0;
+  remainingQuestions = 10;
   showQuestion();
 }
 
 // Función para mostrar la pregunta actual
 function showQuestion() {
-  if (currentQuestionIndex >= totalQuestions) {
-    showResults();
-    return;
-  }
-
   const question = getRandomQuestion();
 
   const questionElement = document.createElement('div');
@@ -296,8 +295,11 @@ function showQuestion() {
 
 // Función para obtener una pregunta aleatoria del conjunto de preguntas disponibles
 function getRandomQuestion() {
-  const question = allQuestions[currentQuestionIndex];
-  return question;
+  const availableQuestions = allQuestions.filter((question) => !question.used);
+  const randomIndex = Math.floor(Math.random() * availableQuestions.length);
+  const randomQuestion = availableQuestions[randomIndex];
+  randomQuestion.used = true;
+  return randomQuestion;
 }
 
 // Función para manejar el evento de siguiente pregunta
@@ -306,12 +308,17 @@ function handleNext() {
 
   if (selectedOption) {
     const userAnswer = parseInt(selectedOption.value);
-    const currentQuestion = allQuestions[currentQuestionIndex];
+    const currentQuestion = getRandomQuestion();
     currentQuestion.userAnswer = userAnswer;
 
     currentQuestionIndex++;
+    remainingQuestions--;
 
-    showQuestion();
+    if (remainingQuestions > 0) {
+      showQuestion();
+    } else {
+      showResults();
+    }
   } else {
     alert('Por favor, selecciona una opción.');
   }
@@ -324,50 +331,52 @@ function showResults() {
   let correctCount = 0;
 
   allQuestions.forEach(function(question, index) {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('result');
-    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
-    
-    const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
-    const correctAnswer = question.correctAnswer;
-    const isCorrect = userAnswer === correctAnswer;
+    if (index < currentQuestionIndex) {
+      const questionElement = document.createElement('div');
+      questionElement.classList.add('result');
+      questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
 
-    if (isCorrect) {
-      correctCount++;
-      questionElement.classList.add('correct');
-    } else {
-      questionElement.classList.add('incorrect');
+      const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
+      const correctAnswer = question.correctAnswer;
+      const isCorrect = userAnswer === correctAnswer;
+
+      if (isCorrect) {
+        correctCount++;
+        questionElement.classList.add('correct');
+      } else {
+        questionElement.classList.add('incorrect');
+      }
+
+      const options = question.options.map(function(option, optionIndex) {
+        const optionElement = document.createElement('div');
+        optionElement.classList.add('option');
+        optionElement.innerHTML = `
+          <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
+          <label for="result-option-${optionIndex}">${option}</label>
+        `;
+
+        if (optionIndex === userAnswer) {
+          optionElement.classList.add('selected');
+        }
+
+        if (optionIndex === correctAnswer) {
+          optionElement.classList.add('correct-answer');
+        }
+
+        return optionElement;
+      });
+
+      options.forEach(function(option) {
+        questionElement.appendChild(option);
+      });
+
+      quizContainer.appendChild(questionElement);
     }
-
-    const options = question.options.map(function(option, optionIndex) {
-      const optionElement = document.createElement('div');
-      optionElement.classList.add('option');
-      optionElement.innerHTML = `
-        <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
-        <label for="result-option-${optionIndex}">${option}</label>
-      `;
-
-      if (optionIndex === userAnswer) {
-        optionElement.classList.add('selected');
-      }
-
-      if (optionIndex === correctAnswer) {
-        optionElement.classList.add('correct-answer');
-      }
-
-      return optionElement;
-    });
-
-    options.forEach(function(option) {
-      questionElement.appendChild(option);
-    });
-
-    quizContainer.appendChild(questionElement);
   });
 
   const scoreElement = document.createElement('p');
   scoreElement.classList.add('score');
-  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${totalQuestions}.`;
+  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
   quizContainer.appendChild(scoreElement);
 }
 
