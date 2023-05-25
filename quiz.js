@@ -14,6 +14,41 @@ const questions = [
     question: '¿Cuál es el río más largo del mundo?',
     options: ['Nilo', 'Amazonas', 'Yangtsé', 'Mississippi'],
     correctAnswer: 1
+  },
+  {
+    question: '¿Cuál es la montaña más alta del mundo?',
+    options: ['Monte Everest', 'Monte Kilimanjaro', 'Monte McKinley', 'Monte Aconcagua'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién pintó la Mona Lisa?',
+    options: ['Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh', 'Michelangelo'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el océano más grande del mundo?',
+    options: ['Océano Atlántico', 'Océano Pacífico', 'Océano Índico', 'Océano Ártico'],
+    correctAnswer: 1
+  },
+  {
+    question: '¿Cuál es el país más poblado del mundo?',
+    options: ['China', 'India', 'Estados Unidos', 'Rusia'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el quinto planeta en el sistema solar comenzando desde el Sol?',
+    options: ['Júpiter', 'Venus', 'Marte', 'Saturno'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién escribió "Don Quijote de la Mancha"?',
+    options: ['Miguel de Cervantes', 'Gabriel García Márquez', 'Jorge Luis Borges', 'Pablo Neruda'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la fórmula química del agua?',
+    options: ['H2O', 'CO2', 'NaCl', 'O2'],
+    correctAnswer: 0
   }
 ];
 
