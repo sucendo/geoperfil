@@ -181,6 +181,11 @@ const allQuestions = [
     correctAnswer: 0
   },
   {
+    question: '¿Cuál es la montaña más alta del hemisferios sur?',
+    options: ['Kilimanjaro', 'Ojos del Salado', 'Aconcagua', 'Kanchenjunga'],
+    correctAnswer: 2
+  },
+  {
     question: '¿Quién escribió la famosa novela "1984"?',
     options: ['George Orwell', 'Ray Bradbury', 'Aldous Huxley', 'Fyodor Dostoyevsky'],
     correctAnswer: 0
@@ -192,8 +197,8 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es el país más pequeño del mundo?',
-    options: ['Ciudad del Vaticano', 'Mónaco', 'Nauru', 'Tuvalu'],
-    correctAnswer: 0
+    options: ['Nauru', 'Ciudad del Vaticano', 'Mónaco', 'Tuvalu'],
+    correctAnswer: 1
   },
   {
     question: '¿Cuál es el desierto más grande del mundo?',
@@ -217,7 +222,7 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es el país más pequeño de América del Sur?',
-    options: ['Surinam', 'Uruguay', 'Guyana', 'Surinam'],
+    options: ['Surinam', 'Uruguay', 'Guyana', 'Ecuador'],
     correctAnswer: 1
   },
   {
@@ -232,13 +237,13 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es la capital de Sudáfrica?',
-    options: ['Pretoria', 'Ciudad del Cabo', 'Bloemfontein', 'Johannesburgo'],
-    correctAnswer: 0
+    options: [ 'Bloemfontein', 'Ciudad del Cabo', 'Pretoria', 'Johannesburgo'],
+    correctAnswer: 2
   },
   {
     question: '¿Cuál es el autor de "Los tres mosqueteros"?',
-    options: ['Alexandre Dumas', 'Victor Hugo', 'Gustave Flaubert', 'Émile Zola'],
-    correctAnswer: 0
+    options: ['Émile Zola', 'Victor Hugo', 'Gustave Flaubert', 'Alexandre Dumas'],
+    correctAnswer: 3
   },
   {
     question: '¿Cuál es el elemento químico con el símbolo "K"?',
