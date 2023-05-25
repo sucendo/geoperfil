@@ -249,6 +249,56 @@ const allQuestions = [
     question: '¿Cuál es el elemento químico con el símbolo "K"?',
     options: ['Potasio', 'Sodio', 'Calcio', 'Magnesio'],
     correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la capital de España?',
+    options: ['Londres', 'París', 'Madrid', 'Roma'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuántos continentes hay en el mundo?',
+    options: ['5', '6', '7', '8'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuál es el océano más grande del mundo?',
+    options: ['Océano Atlántico', 'Océano Pacífico', 'Océano Índico', 'Océano Ártico'],
+    correctAnswer: 1
+  },
+  {
+    question: '¿Quién escribió "Orgullo y prejuicio"?',
+    options: ['Jane Austen', 'Emily Brontë', 'Charlotte Brontë', 'Virginia Woolf'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el país más poblado de Europa?',
+    options: ['Rusia', 'Alemania', 'Francia', 'Reino Unido'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el autor de "El Gran Gatsby"?',
+    options: ['F. Scott Fitzgerald', 'Ernest Hemingway', 'Mark Twain', 'J.D. Salinger'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el elemento químico con el símbolo "Ag"?',
+    options: ['Plata', 'Oro', 'Cobre', 'Aluminio'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el río más largo de América del Norte?',
+    options: ['Misisipi', 'Mackenzie', 'Yukón', 'San Lorenzo'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la moneda oficial de Japón?',
+    options: ['Yen', 'Dólar', 'Euro', 'Libra'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el animal terrestre más rápido del mundo?',
+    options: ['Guepardo', 'León', 'Águila', 'Caballo'],
+    correctAnswer: 0
   }
 ];
 
