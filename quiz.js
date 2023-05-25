@@ -247,63 +247,86 @@ const questions = [
   }
 ];
 
-// Función para cargar el contenido del quiz en el contenedor
-function loadQuiz(container) {
-  container.innerHTML = '';
-  
-  // Ordenar las preguntas aleatoriamente
-  const shuffledQuestions = shuffleArray(questions);
+// Elementos del DOM
+const root = document.getElementById('root');
+const quizContainer = document.createElement('div');
+quizContainer.classList.add('quiz-container');
+root.appendChild(quizContainer);
 
-  // Recorrer las preguntas y mostrar una por una
-  shuffledQuestions.forEach(function(question, index) {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('question');
-    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+let currentQuestionIndex = 0; // Índice de la pregunta actual
 
-    question.options.forEach(function(option, optionIndex) {
-      const optionElement = document.createElement('div');
-      optionElement.classList.add('option');
-      optionElement.innerHTML = `
-        <input type="radio" id="option-${index}-${optionIndex}" name="question-${index}" value="${optionIndex}">
-        <label for="option-${index}-${optionIndex}">${option}</label>
-      `;
-      questionElement.appendChild(optionElement);
-    });
+// Función para mostrar la pregunta actual
+function showQuestion() {
+  const question = questions[currentQuestionIndex];
 
-    container.appendChild(questionElement);
+  const questionElement = document.createElement('div');
+  questionElement.classList.add('question');
+  questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
+
+  question.options.forEach(function(option, optionIndex) {
+    const optionElement = document.createElement('div');
+    optionElement.classList.add('option');
+    optionElement.innerHTML = `
+      <input type="radio" id="option-${optionIndex}" name="question" value="${optionIndex}">
+      <label for="option-${optionIndex}">${option}</label>
+    `;
+    questionElement.appendChild(optionElement);
   });
 
-  // Agregar botón de envío de respuestas
-  const submitButton = document.createElement('button');
-  submitButton.innerText = 'Enviar Respuestas';
-  submitButton.addEventListener('click', checkAnswers);
-  container.appendChild(submitButton);
+  const nextButton = document.createElement('button');
+  nextButton.innerText = 'Siguiente';
+  nextButton.addEventListener('click', handleNext);
+  questionElement.appendChild(nextButton);
+
+  quizContainer.innerHTML = '';
+  quizContainer.appendChild(questionElement);
 }
 
-// Función para verificar las respuestas seleccionadas por el usuario
-function checkAnswers() {
-  const answerElements = document.querySelectorAll('input[type="radio"]:checked');
-  const userAnswers = Array.from(answerElements).map(function(element) {
-    return parseInt(element.value);
-  });
+// Función para manejar el evento de siguiente pregunta
+function handleNext() {
+  const selectedOption = document.querySelector('input[name="question"]:checked');
+
+  if (selectedOption) {
+    const userAnswer = parseInt(selectedOption.value);
+    const currentQuestion = questions[currentQuestionIndex];
+    currentQuestion.userAnswer = userAnswer;
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      showQuestion();
+    } else {
+      showResults();
+    }
+  } else {
+    alert('Por favor, selecciona una opción.');
+  }
+}
+
+// Función para mostrar los resultados
+function showResults() {
+  quizContainer.innerHTML = '<h2>Resultados</h2>';
 
   let correctCount = 0;
-  userAnswers.forEach(function(userAnswer, index) {
-    const question = questions[index];
-    if (userAnswer === question.correctAnswer) {
+
+  questions.forEach(function(question, index) {
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('result');
+    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+    
+    const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : -1;
+    const correctAnswer = question.correctAnswer;
+
+    if (userAnswer === correctAnswer) {
+      questionElement.classList.add('correct');
       correctCount++;
+    } else {
+      questionElement.classList.add('incorrect');
+      const correctOption = question.options[correctAnswer];
+      questionElement.innerHTML += `<p>Respuesta correcta: ${correctOption}</p>`;
     }
+
+    quizContainer.appendChild(questionElement);
   });
 
   const resultMessage = `Obtuviste ${correctCount} respuestas correctas de ${questions.length}.`;
-  alert(resultMessage);
-}
-
-// Función para mezclar un array en orden aleatorio
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+  const scoreElement = document.createElement
