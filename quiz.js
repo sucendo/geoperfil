@@ -329,4 +329,11 @@ function showResults() {
   });
 
   const resultMessage = `Obtuviste ${correctCount} respuestas correctas de ${questions.length}.`;
-  const scoreElement = document.createElement
+  const scoreElement = document.createElement('p');
+  scoreElement.classList.add('score');
+  scoreElement.innerText = resultMessage;
+  quizContainer.appendChild(scoreElement);
+}
+
+// Navegar a la página del quiz al cargar la página
+showQuestion();
