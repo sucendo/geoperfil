@@ -1,8 +1,8 @@
-// Archivo main.js
+// Elementos del DOM
+const root = document.getElementById('root');
 
 // Función para cambiar de página
 function navigateTo(page) {
-  const root = document.getElementById('root');
   root.innerHTML = '';
 
   if (page === 'home') {
@@ -16,39 +16,9 @@ function navigateTo(page) {
   }
 }
 
-// Función para cargar el contenido del quiz en el contenedor
+// Función para cargar el contenido del quiz
 function loadQuiz() {
-  const root = document.getElementById('root');
-  root.innerHTML = '';
-
-  const quizContainer = document.createElement('div');
-  quizContainer.classList.add('quiz-container');
-  root.appendChild(quizContainer);
-
-  // Generar las preguntas y opciones del quiz
-  questions.forEach(function(question, index) {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('question');
-    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
-
-    question.options.forEach(function(option, optionIndex) {
-      const optionElement = document.createElement('div');
-      optionElement.classList.add('option');
-      optionElement.innerHTML = `
-        <input type="radio" id="option-${index}-${optionIndex}" name="question-${index}" value="${optionIndex}">
-        <label for="option-${index}-${optionIndex}">${option}</label>
-      `;
-      questionElement.appendChild(optionElement);
-    });
-
-    quizContainer.appendChild(questionElement);
-  });
-
-  // Agregar botón de envío de respuestas
-  const submitButton = document.createElement('button');
-  submitButton.innerText = 'Enviar Respuestas';
-  submitButton.addEventListener('click', checkAnswers);
-  quizContainer.appendChild(submitButton);
+  root.innerHTML = '<h2>Quiz</h2><p>Contenido del quiz...</p>';
 }
 
 // Manejo de eventos de navegación
