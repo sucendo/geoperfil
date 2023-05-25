@@ -3,6 +3,9 @@ function navigateTo(page) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
+  // Actualizar la URL dinámicamente
+  history.pushState({ page }, null, `#${page}`);
+
   if (page === 'home') {
     root.innerHTML = '<h1>Hola desde JavaScript</h1>';
   } else if (page === 'about') {
@@ -14,6 +17,9 @@ function navigateTo(page) {
   }
 }
 
+// Función para cargar el contenido del quiz
+// ...
+
 // Manejo de eventos de navegación
 document.addEventListener('DOMContentLoaded', function() {
   const links = document.querySelectorAll('nav a');
@@ -24,7 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
       navigateTo(page);
     });
   });
+
+  // Manejar el evento popstate para actualizar la página al navegar hacia atrás o adelante en el historial del navegador
+  window.addEventListener('popstate', function(event) {
+    const page = event.state.page;
+    navigateTo(page);
+  });
 });
 
-// Navegar a la página de inicio por defecto al cargar la página
-navigateTo('home');
+// Navegar a la página correspondiente según la URL actual al cargar la página
+const currentPage = window.location.hash.slice(1);
+navigateTo(currentPage || 'home');
