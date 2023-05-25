@@ -49,6 +49,51 @@ const questions = [
     question: '¿Cuál es la fórmula química del agua?',
     options: ['H2O', 'CO2', 'NaCl', 'O2'],
     correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el animal terrestre más grande del mundo?',
+    options: ['Elefante africano', 'Ballena azul', 'Jirafa', 'Oso polar'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el autor de la novela "Cien años de soledad"?',
+    options: ['Gabriel García Márquez', 'Pablo Neruda', 'Jorge Luis Borges', 'Julio Cortázar'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el idioma más hablado en el mundo?',
+    options: ['Mandarín', 'Inglés', 'Español', 'Hindi'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el metal más abundante en la corteza terrestre?',
+    options: ['Aluminio', 'Hierro', 'Oro', 'Cobre'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la capital de Australia?',
+    options: ['Sídney', 'Melbourne', 'Canberra', 'Brisbane'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuál es la fórmula química del dióxido de carbono?',
+    options: ['CO2', 'H2O', 'NaCl', 'O2'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién escribió "Romeo y Julieta"?',
+    options: ['William Shakespeare', 'Friedrich Nietzsche', 'Charles Dickens', 'Jane Austen'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la capital de Brasil?',
+    options: ['Río de Janeiro', 'São Paulo', 'Brasilia', 'Buenos Aires'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuál es el metal líquido a temperatura ambiente?',
+    options: ['Mercurio', 'Plomo', 'Cobre', 'Estaño'],
+    correctAnswer: 0
   }
 ];
 
