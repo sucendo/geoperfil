@@ -6,13 +6,13 @@ function navigateTo(page) {
   root.innerHTML = '';
 
   if (page === 'home') {
-    root.innerHTML = '<h1>Hola desde JavaScript</h1>';
+    root.innerHTML = '<h1>Hola amig@</h1>';
   } else if (page === 'about') {
-    root.innerHTML = '<h2>Acerca de</h2><p>Esta es la página de Acerca de...</p>';
-  } else if (page === 'contact') {
-    root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto.</p>';
+    root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p>';  
   } else if (page === 'quiz') {
     loadScript('quiz.js', loadQuiz);
+  } else if (page === 'contact') {
+    root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
 }
 
