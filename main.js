@@ -10,7 +10,7 @@ function navigateTo(page) {
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p>';  
   } else if (page === 'quiz') {
-    loadScript('quiz.js', loadQuiz);
+    loadScript('questions.js', loadQuestionsAndQuiz);
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
@@ -57,6 +57,11 @@ function loadQuiz() {
   submitButton.innerText = 'Enviar Respuestas';
   submitButton.addEventListener('click', checkAnswers);
   quizContainer.appendChild(submitButton);
+}
+
+// Función para cargar el script de las preguntas y luego cargar el quiz
+function loadQuestionsAndQuiz() {
+  loadScript('quiz.js', loadQuiz);
 }
 
 // Manejo de eventos de navegación
