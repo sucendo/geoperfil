@@ -1,8 +1,8 @@
-// Elementos del DOM
-const root = document.getElementById('root');
+// Archivo main.js
 
 // Función para cambiar de página
 function navigateTo(page) {
+  const root = document.getElementById('root');
   root.innerHTML = '';
 
   if (page === 'home') {
@@ -12,25 +12,51 @@ function navigateTo(page) {
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto.</p>';
   } else if (page === 'quiz') {
-    loadScript('quiz.js');
+    loadScript('quiz.js', loadQuiz);
   }
 }
 
-// Función para cargar un script dinámicamente
-function loadScript(url) {
+// Función para cargar un script de forma dinámica
+function loadScript(scriptPath, callback) {
   const script = document.createElement('script');
-  script.src = url;
-  script.onload = function() {
-    // Una vez que se carga el script, se llama a la función correspondiente del archivo cargado
-    loadQuiz();
-  };
+  script.src = scriptPath;
+  script.onload = callback;
   document.head.appendChild(script);
 }
 
-// Función para cargar el contenido del quiz
+// Función para cargar el contenido del quiz en el contenedor
 function loadQuiz() {
+  const root = document.getElementById('root');
   root.innerHTML = '';
-  // Lógica y contenido del quiz aquí...
+
+  const quizContainer = document.createElement('div');
+  quizContainer.classList.add('quiz-container');
+  root.appendChild(quizContainer);
+
+  // Generar las preguntas y opciones del quiz
+  questions.forEach(function(question, index) {
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('question');
+    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+
+    question.options.forEach(function(option, optionIndex) {
+      const optionElement = document.createElement('div');
+      optionElement.classList.add('option');
+      optionElement.innerHTML = `
+        <input type="radio" id="option-${index}-${optionIndex}" name="question-${index}" value="${optionIndex}">
+        <label for="option-${index}-${optionIndex}">${option}</label>
+      `;
+      questionElement.appendChild(optionElement);
+    });
+
+    quizContainer.appendChild(questionElement);
+  });
+
+  // Agregar botón de envío de respuestas
+  const submitButton = document.createElement('button');
+  submitButton.innerText = 'Enviar Respuestas';
+  submitButton.addEventListener('click', checkAnswers);
+  quizContainer.appendChild(submitButton);
 }
 
 // Manejo de eventos de navegación
