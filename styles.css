@@ -6,32 +6,38 @@ body {
   padding: 0;
 }
 
-nav {
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
   background-color: #333;
   color: #fff;
   padding: 10px;
+  text-align: center;
+}
+
+nav {
+  margin-bottom: 20px;
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul li {
-  display: inline;
   margin-right: 10px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
 }
 
 .quiz-container {
@@ -68,8 +74,17 @@ button:hover {
 
 /* Estilos responsivos para dispositivos móviles */
 @media screen and (max-width: 480px) {
+  header {
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
   nav ul li {
-    display: block;
+    margin-right: 0;
     margin-bottom: 10px;
   }
 }
