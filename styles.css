@@ -1,10 +1,31 @@
-/* Estilos generales */
+/* Archivo style.css */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+nav {
   background-color: #333;
   color: #fff;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .container {
@@ -13,99 +34,42 @@ body {
   padding: 20px;
 }
 
-/* Estilos para la navegación */
-nav {
-  background-color: #222;
-  padding: 10px;
-}
-
-nav a {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 3px;
-  transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-  background-color: #444;
-}
-
-/* Estilos para las secciones */
-.section {
-  margin-bottom: 20px;
-}
-
-h1, h2 {
-  color: #fff;
-}
-
-p {
-  color: #ccc;
-  line-height: 1.5;
-}
-
-/* Estilos para el juego de quiz */
 .quiz-container {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .question {
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .option {
-  margin-bottom: 10px;
-}
-
-label {
-  margin-left: 5px;
-}
-
-button {
-  display: block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #222;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #444;
-}
-
-.result {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #fff;
+  margin-bottom: 5px;
 }
 
 .correct {
-  color: #4CAF50;
+  background-color: #a2e8a2;
 }
 
 .incorrect {
-  color: #F44336;
+  background-color: #ffbaba;
 }
 
-.selected {
+button {
+  padding: 10px 20px;
+  background-color: #333;
   color: #fff;
-  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
-.correct-answer {
-  color: #4CAF50;
-  font-weight: bold;
+button:hover {
+  background-color: #555;
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+  nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
