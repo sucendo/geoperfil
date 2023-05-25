@@ -254,10 +254,18 @@ quizContainer.classList.add('quiz-container');
 root.appendChild(quizContainer);
 
 let currentQuestionIndex = 0; // Índice de la pregunta actual
+let remainingQuestions = 10; // Número de preguntas restantes
+
+// Función para iniciar el juego
+function startGame() {
+  currentQuestionIndex = 0;
+  remainingQuestions = 10;
+  showQuestion();
+}
 
 // Función para mostrar la pregunta actual
 function showQuestion() {
-  const question = questions[currentQuestionIndex];
+  const question = getRandomQuestion();
 
   const questionElement = document.createElement('div');
   questionElement.classList.add('question');
@@ -282,17 +290,26 @@ function showQuestion() {
   quizContainer.appendChild(questionElement);
 }
 
+// Función para obtener una pregunta aleatoria del conjunto de preguntas disponibles
+function getRandomQuestion() {
+  const availableQuestions = allQuestions.slice(currentQuestionIndex);
+  const randomIndex = Math.floor(Math.random() * availableQuestions.length);
+  return availableQuestions[randomIndex];
+}
+
 // Función para manejar el evento de siguiente pregunta
 function handleNext() {
   const selectedOption = document.querySelector('input[name="question"]:checked');
 
   if (selectedOption) {
     const userAnswer = parseInt(selectedOption.value);
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = getRandomQuestion();
     currentQuestion.userAnswer = userAnswer;
 
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    remainingQuestions--;
+
+    if (remainingQuestions > 0) {
       showQuestion();
     } else {
       showResults();
@@ -308,32 +325,55 @@ function showResults() {
 
   let correctCount = 0;
 
-  questions.forEach(function(question, index) {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('result');
-    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
-    
-    const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : -1;
-    const correctAnswer = question.correctAnswer;
+  allQuestions.forEach(function(question, index) {
+    if (index < currentQuestionIndex) {
+      const questionElement = document.createElement('div');
+      questionElement.classList.add('result');
+      questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+      
+      const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
+      const correctAnswer = question.correctAnswer;
+      const isCorrect = userAnswer === correctAnswer;
 
-    if (userAnswer === correctAnswer) {
-      questionElement.classList.add('correct');
-      correctCount++;
-    } else {
-      questionElement.classList.add('incorrect');
-      const correctOption = question.options[correctAnswer];
-      questionElement.innerHTML += `<p>Respuesta correcta: ${correctOption}</p>`;
+      if (isCorrect) {
+        correctCount++;
+        questionElement.classList.add('correct');
+      } else {
+        questionElement.classList.add('incorrect');
+      }
+
+      const options = question.options.map(function(option, optionIndex) {
+        const optionElement = document.createElement('div');
+        optionElement.classList.add('option');
+        optionElement.innerHTML = `
+          <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
+          <label for="result-option-${optionIndex}">${option}</label>
+        `;
+
+        if (optionIndex === userAnswer) {
+          optionElement.classList.add('selected');
+        }
+
+        if (optionIndex === correctAnswer) {
+          optionElement.classList.add('correct-answer');
+        }
+
+        return optionElement;
+      });
+
+      options.forEach(function(option) {
+        questionElement.appendChild(option);
+      });
+
+      quizContainer.appendChild(questionElement);
     }
-
-    quizContainer.appendChild(questionElement);
   });
 
-  const resultMessage = `Obtuviste ${correctCount} respuestas correctas de ${questions.length}.`;
   const scoreElement = document.createElement('p');
   scoreElement.classList.add('score');
-  scoreElement.innerText = resultMessage;
+  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
   quizContainer.appendChild(scoreElement);
 }
 
-// Navegar a la página del quiz al cargar la página
-showQuestion();
+// Iniciar el juego al cargar la página
+startGame();
