@@ -1,5 +1,5 @@
-// Array con las preguntas del quiz
-const questions = [
+// Array con todas las preguntas del quiz
+const allQuestions = [
   {
     question: '¿Cuál es la capital de Francia?',
     options: ['Londres', 'París', 'Madrid', 'Roma'],
