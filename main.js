@@ -12,13 +12,25 @@ function navigateTo(page) {
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto.</p>';
   } else if (page === 'quiz') {
-    loadQuiz();
+    loadScript('quiz.js');
   }
+}
+
+// Función para cargar un script dinámicamente
+function loadScript(url) {
+  const script = document.createElement('script');
+  script.src = url;
+  script.onload = function() {
+    // Una vez que se carga el script, se llama a la función correspondiente del archivo cargado
+    loadQuiz();
+  };
+  document.head.appendChild(script);
 }
 
 // Función para cargar el contenido del quiz
 function loadQuiz() {
-  root.innerHTML = '<h2>Quiz</h2><p>Contenido del quiz...</p>';
+  root.innerHTML = '';
+  // Lógica y contenido del quiz aquí...
 }
 
 // Manejo de eventos de navegación
