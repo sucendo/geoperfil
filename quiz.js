@@ -12,6 +12,7 @@ let quizQuestions = []; // Preguntas para el juego actual
 function startGame() {
   allQuestions.forEach((question) => {
     question.used = false;
+    question.userAnswer = null; // Reiniciar las respuestas del usuario
   });
   currentQuestionIndex = 0;
   remainingQuestions = 10;
@@ -34,13 +35,24 @@ function showQuestion() {
   questionElement.classList.add('question');
   questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
 
-  question.options.forEach(function(option, optionIndex) {
+  question.options.forEach(function (option, optionIndex) {
     const optionElement = document.createElement('div');
     optionElement.classList.add('option');
-    optionElement.innerHTML = `
-      <input type="radio" id="option-${optionIndex}" name="question" value="${optionIndex}">
-      <label for="option-${optionIndex}">${option}</label>
-    `;
+
+    const inputElement = document.createElement('input');
+    inputElement.type = 'radio';
+    inputElement.id = `option-${optionIndex}`;
+    inputElement.name = 'question';
+    inputElement.value = optionIndex;
+    inputElement.checked = optionIndex === question.userAnswer; // Marcar la respuesta seleccionada
+
+    const labelElement = document.createElement('label');
+    labelElement.htmlFor = `option-${optionIndex}`;
+    labelElement.innerText = option;
+
+    optionElement.appendChild(inputElement);
+    optionElement.appendChild(labelElement);
+
     questionElement.appendChild(optionElement);
   });
 
@@ -91,7 +103,7 @@ function showResults() {
 
   let correctCount = 0;
 
-  quizQuestions.forEach(function(question, index) {
+  quizQuestions.forEach(function (question, index) {
     const questionElement = document.createElement('div');
     questionElement.classList.add('result');
     questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
@@ -107,7 +119,7 @@ function showResults() {
       questionElement.classList.add('incorrect');
     }
 
-    const options = question.options.map(function(option, optionIndex) {
+    const options = question.options.map(function (option, optionIndex) {
       const optionElement = document.createElement('div');
       optionElement.classList.add('option');
       optionElement.innerHTML = `
@@ -126,7 +138,7 @@ function showResults() {
       return optionElement;
     });
 
-    options.forEach(function(option) {
+    options.forEach(function (option) {
       questionElement.appendChild(option);
     });
 
