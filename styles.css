@@ -1,3 +1,80 @@
+/* Archivo style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.quiz-container {
+  margin-bottom: 20px;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+.option {
+  margin-bottom: 5px;
+}
+
+.correct {
+  background-color: #a2e8a2;
+}
+
+.incorrect {
+  background-color: #ffbaba;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+  nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/*
 body {
   background-color: #222;
   color: #fff;
@@ -92,3 +169,4 @@ button:hover {
     padding: 8px 16px;
   }
 }
+*/
