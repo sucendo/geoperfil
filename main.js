@@ -141,7 +141,7 @@ function loadQuiz() {
 }
 
 // Función para cargar el contenido del quiz en el contenedor
-function loadQuiz() {
+function loadKids() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
