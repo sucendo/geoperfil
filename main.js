@@ -10,7 +10,7 @@ function navigateTo(page) {
   } else if (page === 'quiz') {
     loadScript('quiz.js', loadQuiz);
   } else if (page === 'kids') {
-    loadScript('quiz.js', loadQuiz);
+   
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
