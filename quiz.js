@@ -5,26 +5,21 @@ quizContainer.classList.add('quiz-container');
 root.appendChild(quizContainer);
 
 let currentQuestionIndex = 0; // Índice de la pregunta actual
-let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
+let correctCount = 0; // Contador de respuestas correctas
 
 // Función para iniciar el juego
 function startGame() {
-  allQuestions.forEach((question) => {
-    question.used = false;
-    question.userAnswer = null; // Reiniciar las respuestas del usuario
-  });
   currentQuestionIndex = 0;
-  remainingQuestions = 10;
-  quizQuestions = getRandomQuestions(remainingQuestions);
+  correctCount = 0;
+  quizQuestions = getRandomQuestions();
   showQuestion();
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
-function getRandomQuestions(count) {
-  const availableQuestions = allQuestions.filter((question) => !question.used);
-  const shuffledQuestions = shuffleArray(availableQuestions);
-  return shuffledQuestions.slice(0, count);
+function getRandomQuestions() {
+  const availableQuestions = allQuestions.slice(); // Copia todas las preguntas
+  return shuffleArray(availableQuestions);
 }
 
 // Función para mostrar la pregunta actual
@@ -38,21 +33,10 @@ function showQuestion() {
   question.options.forEach(function (option, optionIndex) {
     const optionElement = document.createElement('div');
     optionElement.classList.add('option');
-
-    const inputElement = document.createElement('input');
-    inputElement.type = 'radio';
-    inputElement.id = `option-${optionIndex}`;
-    inputElement.name = 'question';
-    inputElement.value = optionIndex;
-    inputElement.checked = optionIndex === question.userAnswer; // Marcar la respuesta seleccionada
-
-    const labelElement = document.createElement('label');
-    labelElement.htmlFor = `option-${optionIndex}`;
-    labelElement.innerText = option;
-
-    optionElement.appendChild(inputElement);
-    optionElement.appendChild(labelElement);
-
+    optionElement.innerHTML = `
+      <input type="radio" id="option-${optionIndex}" name="question" value="${optionIndex}">
+      <label for="option-${optionIndex}">${option}</label>
+    `;
     questionElement.appendChild(optionElement);
   });
 
@@ -81,13 +65,15 @@ function handleNext() {
   if (selectedOption) {
     const userAnswer = parseInt(selectedOption.value);
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    currentQuestion.userAnswer = userAnswer;
-    currentQuestion.used = true;
+    const correctAnswer = currentQuestion.correctAnswer;
+
+    if (userAnswer === correctAnswer) {
+      correctCount++;
+    }
 
     currentQuestionIndex++;
-    remainingQuestions--;
 
-    if (remainingQuestions > 0) {
+    if (currentQuestionIndex < quizQuestions.length) {
       showQuestion();
     } else {
       showResults();
@@ -100,8 +86,6 @@ function handleNext() {
 // Función para mostrar los resultados
 function showResults() {
   quizContainer.innerHTML = '<h2>Resultados</h2>';
-
-  let correctCount = 0;
 
   quizQuestions.forEach(function (question, index) {
     const questionElement = document.createElement('div');
@@ -128,13 +112,6 @@ function showResults() {
         optionElement.classList.add('correct-answer');
       }
 
-      if (isCorrect && optionIndex === userAnswer) {
-        questionElement.classList.add('correct');
-        correctCount++;
-      } else if (!isCorrect && optionIndex === userAnswer) {
-        questionElement.classList.add('incorrect');
-      }
-
       return optionElement;
     });
 
@@ -147,7 +124,7 @@ function showResults() {
 
   const scoreElement = document.createElement('p');
   scoreElement.classList.add('score');
-  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
+  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${quizQuestions.length}.`;
   quizContainer.appendChild(scoreElement);
 }
 
