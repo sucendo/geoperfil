@@ -10,7 +10,7 @@ function navigateTo(page) {
   } else if (page === 'quiz') {
     loadScript('quiz.js', loadQuiz);
   } else if (page === 'kids') {
-    loadScript('quiz.js', loadKids);
+    loadScript('kidsQuiz.js', loadKids);
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
@@ -140,7 +140,7 @@ function loadQuiz() {
     .catch(error => console.log('Error al cargar el archivo questions.js:', error));
 }
 
-// Función para cargar el contenido del quiz en el contenedor
+// Función para cargar el contenido del quiz para niños en el contenedor
 function loadKids() {
   const root = document.getElementById('root');
   root.innerHTML = '';
