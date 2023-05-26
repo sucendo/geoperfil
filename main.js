@@ -8,24 +8,32 @@ function navigateTo(page) {
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';  
   } else if (page === 'quiz') {
-    loadQuiz('questions.js');
+    loadScript('quiz.js', loadQuiz);
   } else if (page === 'kids') {
-    loadQuiz('kidsQuestions.js');
+    loadScript('quiz.js', loadQuiz);
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
 }
 
+// Función para cargar un script de forma dinámica
+function loadScript(scriptPath, callback) {
+  const script = document.createElement('script');
+  script.src = scriptPath;
+  script.onload = callback;
+  document.head.appendChild(script);
+}
+
 // Función para cargar el contenido del quiz en el contenedor
-function loadQuiz(questionsFile) {
+function loadQuiz() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Obtener el contenido del archivo de preguntas
-  fetch(questionsFile)
+  // Obtener el contenido del archivo questions.js
+  fetch('questions.js')
     .then(response => response.text())
     .then(data => {
-      eval(data); // Ejecutar el código JavaScript del archivo de preguntas
+      eval(data); // Ejecutar el código JavaScript de questions.js
 
       const quizContainer = document.createElement('div');
       quizContainer.classList.add('quiz-container');
@@ -129,15 +137,12 @@ function loadQuiz(questionsFile) {
       // Mostrar la primera pregunta
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo de preguntas:', error));
+    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
 }
 
-// Función para cargar el script de forma dinámica
-function loadScript(scriptPath, callback) {
-  const script = document.createElement('script');
-  script.src = scriptPath;
-  script.onload = callback;
-  document.head.appendChild(script);
+// Función para verificar las respuestas del quiz
+function checkAnswers() {
+  // Implementación anterior de la función checkAnswers
 }
 
 // Manejo de eventos de navegación
@@ -147,13 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const page = link.getAttribute('data-page');
-      if (page === 'quiz') {
-        loadQuiz('questions.js'); // Cargar preguntas para el quiz
-      } else if (page === 'kids') {
-        loadQuiz('kidsQuestions.js'); // Cargar preguntas para el juego de niños
-      } else {
-        navigateTo(page);
-      }
+      navigateTo(page);
     });
   });
 });
