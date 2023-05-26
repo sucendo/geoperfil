@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" width="400" height="800">
+  <!-- Cuerpo -->
+  <rect x="70" y="100" width="60" height="180" fill="#E6E6E6" />
+
+  <!-- Piernas -->
+  <rect x="90" y="280" width="20" height="80" fill="#E6E6E6" />
+
+  <!-- Brazos -->
+  <rect x="30" y="130" width="140" height="20" fill="#E6E6E6" />
+
+  <!-- Cabeza -->
+  <circle cx="100" cy="80" r="40" fill="#F5F5F5" stroke="#000000" stroke-width="2" />
+
+  <!-- Ojos -->
+  <circle cx="85" cy="70" r="5" fill="#000000" />
+  <circle cx="115" cy="70" r="5" fill="#000000" />
+
+  <!-- Cejas -->
+  <path d="M70,55 Q85,40 100,55" fill="none" stroke="#000000" stroke-width="2" />
+  <path d="M100,55 Q115,40 130,55" fill="none" stroke="#000000" stroke-width="2" />
+
+  <!-- Nariz -->
+  <path d="M100,80 L95,100 L105,100 Z" fill="#F5F5F5" stroke="#000000" stroke-width="2" />
+
+  <!-- Boca -->
+  <path d="M85,105 Q100,125 115,105" fill="none" stroke="#000000" stroke-width="2" />
+
+  <!-- Gafas -->
+  <path d="M65,75 L75,65 L125,65 L135,75" fill="none" stroke="#000000" stroke-width="2" />
+  <path d="M77,65 L83,55 L117,55 L123,65" fill="none" stroke="#000000" stroke-width="2" />
+
+  <!-- Cabello -->
+  <circle cx="100" cy="80" r="45" fill="none" stroke="#000000" stroke-width="2" />
+  <line x1="70" y1="55" x2="130" y2="55" stroke="#000000" stroke-width="2" />
+  <line x1="80" y1="40" x2="120" y2="40" stroke="#000000" stroke-width="2" />
+  <line x1="90" y1="25" x2="110" y2="25" stroke="#000000" stroke-width="2" />
+
+  <!-- Camisa -->
+  <rect x="70" y="200" width="60" height="80" fill="#2B7DE9" />
+
+  <!-- Pantalón -->
+  <rect x="70" y="280" width="60" height="80" fill="#3F3F3F" />
+
+  <!-- Zapatos -->
+  <rect x="70" y="360" width="25" height="20" fill="#000000" />
+  <rect x="105" y="360" width="25" height="20" fill="#000000" />
+
+  <!-- Manos -->
+  <circle cx="30" cy="150" r="15" fill="#E6E6E6" stroke="#000000" stroke-width="2" />
+  <circle cx="170" cy="150" r="15" fill="#E6E6E6" stroke="#000000" stroke-width="2" />
+
+  <!-- Detalle de las gafas -->
+  <circle cx="80" cy="70" r="3" fill="#000000" />
+  <circle cx="120" cy="70" r="3" fill="#000000" />
+
+  <!-- Detalle de la camisa -->
+  <rect x="85" y="200" width="30" height="10" fill="#F5F5F5" />
+  <rect x="85" y="220" width="30" height="10" fill="#F5F5F5" />
+  <rect x="85" y="240" width="30" height="10" fill="#F5F5F5" />
+
+  <!-- Detalle del pantalón -->
+  <rect x="85" y="280" width="30" height="10" fill="#F5F5F5" />
+  <rect x="85" y="300" width="30" height="10" fill="#F5F5F5" />
+  <rect x="85" y="320" width="30" height="10" fill="#F5F5F5" />
+
+  <!-- Detalle de los zapatos -->
+  <rect x="70" y="380" width="25" height="10" fill="#F5F5F5" />
+  <rect x="105" y="380" width="25" height="10" fill="#F5F5F5" />
+</svg>
