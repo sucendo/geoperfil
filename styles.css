@@ -19,7 +19,7 @@ nav {
   padding: 10px;
 }
 
-nav li{
+nav li {
   display: inline-block;
   margin-right: 10px;
   padding: 5px 10px;
@@ -34,7 +34,7 @@ nav li:hover {
   background-color: #444;
 }
 
-nav li a{
+nav li a {
   text-decoration: none;
   color: #fff;
 }
@@ -44,7 +44,8 @@ nav li a{
   margin-bottom: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #fff;
 }
 
@@ -98,11 +99,11 @@ button:hover {
 }
 
 .correct {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .incorrect {
-  color: #F44336;
+  color: #f44336;
 }
 
 .selected {
@@ -111,7 +112,7 @@ button:hover {
 }
 
 .correct-answer {
-  color: #4CAF50;
+  color: #4caf50;
   font-weight: bold;
 }
 
@@ -129,18 +130,18 @@ button:hover {
   button {
     padding: 8px 16px;
   }
-  
-  ul{
+
+  ul {
     padding: 0px;
   }
-  
+
   nav li {
     padding: 0px 0px;
-  } 
+  }
 }
 
 @media screen and (max-width: 480px) {
-  nav ul li a{
+  nav ul li a {
     display: block;
     margin-bottom: 10px;
   }
