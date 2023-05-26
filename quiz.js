@@ -91,7 +91,7 @@ function showResults() {
 
   let correctCount = 0;
 
-  quizQuestions.forEach(function(question, index) {
+  quizQuestions.forEach(function (question, index) {
     const questionElement = document.createElement('div');
     questionElement.classList.add('result');
     questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
@@ -100,14 +100,7 @@ function showResults() {
     const correctAnswer = question.correctAnswer;
     const isCorrect = userAnswer === correctAnswer;
 
-    if (isCorrect) {
-      correctCount++;
-      questionElement.classList.add('correct');
-    } else {
-      questionElement.classList.add('incorrect');
-    }
-
-    const options = question.options.map(function(option, optionIndex) {
+    const options = question.options.map(function (option, optionIndex) {
       const optionElement = document.createElement('div');
       optionElement.classList.add('option');
       optionElement.innerHTML = `
@@ -123,12 +116,15 @@ function showResults() {
         optionElement.classList.add('correct-answer');
       }
 
-      return optionElement;
+      questionElement.appendChild(optionElement);
     });
 
-    options.forEach(function(option) {
-      questionElement.appendChild(option);
-    });
+    if (isCorrect) {
+      correctCount++;
+      questionElement.classList.add('correct');
+    } else {
+      questionElement.classList.add('incorrect');
+    }
 
     quizContainer.appendChild(questionElement);
   });
