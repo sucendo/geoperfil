@@ -4,7 +4,7 @@ function navigateTo(page) {
   root.innerHTML = '';
 
   if (page === 'home') {
-    root.innerHTML = '<h1>Hola amig@</h1><object data="hombre_detallado.svg" type="image/svg+xml"></object>';
+    root.innerHTML = '<h1>Hola amig@</h1><object data="hombre.svg" type="image/svg+xml"></object>';
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';  
   } else if (page === 'quiz') {
