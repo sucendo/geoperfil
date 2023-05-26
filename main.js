@@ -12,13 +12,7 @@ function navigateTo(page) {
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   } else if (page === 'kids') {
-    const kidsOptions = document.createElement('div');
-    kidsOptions.innerHTML = `
-      <h2>Juego para niños</h2>
-      <button onclick="loadKidsQuiz('questions.js')">Opción 1</button>
-      <button onclick="loadKidsQuiz('kidsQuestions.js')">Opción 2</button>
-    `;
-    root.appendChild(kidsOptions);
+    loadScript('kidsQuestions.js', loadKidsQuiz);
   }
 }
 
@@ -36,12 +30,12 @@ function loadQuiz() {
 }
 
 // Función para cargar el contenido del juego para niños en el contenedor
-function loadKidsQuiz(questionsFile) {
+function loadKidsQuiz() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Obtener el contenido del archivo de preguntas
-  fetch(questionsFile)
+  fetch('kidsQuestions.js')
     .then(response => response.text())
     .then(data => {
       eval(data); // Ejecutar el código JavaScript del archivo de preguntas
