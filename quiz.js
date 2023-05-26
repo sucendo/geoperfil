@@ -112,13 +112,6 @@ function showResults() {
     const correctAnswer = question.correctAnswer;
     const isCorrect = userAnswer === correctAnswer;
 
-    if (isCorrect) {
-      correctCount++;
-      questionElement.classList.add('correct');
-    } else {
-      questionElement.classList.add('incorrect');
-    }
-
     const options = question.options.map(function (option, optionIndex) {
       const optionElement = document.createElement('div');
       optionElement.classList.add('option');
@@ -133,6 +126,13 @@ function showResults() {
 
       if (optionIndex === correctAnswer) {
         optionElement.classList.add('correct-answer');
+      }
+
+      if (isCorrect && optionIndex === userAnswer) {
+        questionElement.classList.add('correct');
+        correctCount++;
+      } else if (!isCorrect && optionIndex === userAnswer) {
+        questionElement.classList.add('incorrect');
       }
 
       return optionElement;
