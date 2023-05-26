@@ -10,7 +10,7 @@ function navigateTo(page) {
   } else if (page === 'quiz') {
     loadScript('quiz.js', loadQuiz);
   } else if (page === 'kids') {
-   
+    loadScript('quiz.js', loadKids);
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
@@ -138,6 +138,122 @@ function loadQuiz() {
       showQuestion();
     })
     .catch(error => console.log('Error al cargar el archivo questions.js:', error));
+}
+
+// Función para cargar el contenido del quiz en el contenedor
+function loadQuiz() {
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+
+  // Obtener el contenido del archivo kidsQuestions.js
+  fetch('kidsQuestions.js')
+    .then(response => response.text())
+    .then(data => {
+      eval(data); // Ejecutar el código JavaScript de kidsQuestions.js
+
+      const quizContainer = document.createElement('div');
+      quizContainer.classList.add('quiz-container');
+      root.appendChild(quizContainer);
+
+      let currentQuestionIndex = 0; // Índice de la pregunta actual
+      let quizQuestions = []; // Preguntas para el juego actual
+
+      // Función para mostrar la pregunta actual
+      function showQuestion() {
+        const question = quizQuestions[currentQuestionIndex];
+
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('question');
+        questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
+
+        question.options.forEach(function(option, optionIndex) {
+          const optionElement = document.createElement('div');
+          optionElement.classList.add('option');
+          optionElement.innerHTML = `
+            <input type="radio" id="option-${optionIndex}" name="question" value="${optionIndex}">
+            <label for="option-${optionIndex}">${option}</label>
+          `;
+          questionElement.appendChild(optionElement);
+        });
+
+        const nextButton = document.createElement('button');
+        nextButton.innerText = 'Siguiente';
+        nextButton.addEventListener('click', handleNext);
+        questionElement.appendChild(nextButton);
+
+        quizContainer.innerHTML = '';
+        quizContainer.appendChild(questionElement);
+      }
+
+      // Función para manejar el evento de siguiente pregunta
+      function handleNext() {
+        const selectedOption = document.querySelector('input[name="question"]:checked');
+
+        if (selectedOption) {
+          const userAnswer = parseInt(selectedOption.value);
+          const currentQuestion = quizQuestions[currentQuestionIndex];
+          currentQuestion.userAnswer = userAnswer;
+
+          currentQuestionIndex++;
+
+          if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion();
+          } else {
+            showResults();
+          }
+        } else {
+          alert('Por favor, selecciona una opción.');
+        }
+      }
+
+      // Función para mostrar los resultados
+      function showResults() {
+        quizContainer.innerHTML = '<h2>Resultados</h2>';
+
+        let correctCount = 0;
+
+        quizQuestions.forEach(function(question, index) {
+          const questionElement = document.createElement('div');
+          questionElement.classList.add('result');
+
+          questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+
+          const userAnswer = question.userAnswer;
+          const correctAnswer = question.correctAnswer;
+
+          if (userAnswer === correctAnswer) {
+            questionElement.classList.add('correct');
+            correctCount++;
+          } else {
+            questionElement.classList.add('incorrect');
+          }
+
+          const options = question.options.map((option, optionIndex) => {
+            const optionElement = document.createElement('div');
+            optionElement.innerHTML = `
+              <input type="radio" disabled ${optionIndex === userAnswer ? 'checked' : ''}>
+              <label>${option}</label>
+            `;
+            return optionElement.outerHTML;
+          });
+
+          questionElement.innerHTML += options.join('');
+
+          quizContainer.appendChild(questionElement);
+        });
+
+        const resultMessage = document.createElement('p');
+        resultMessage.innerText = `Obtuviste ${correctCount} respuestas correctas de ${quizQuestions.length}.`;
+        quizContainer.appendChild(resultMessage);
+      }
+
+      // Obtener las preguntas para el juego
+      quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
+
+      // Mostrar la primera pregunta
+      showQuestion();
+    })
+    .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
 }
 
 // Función para verificar las respuestas del quiz
