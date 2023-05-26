@@ -116,6 +116,11 @@ button:hover {
   font-weight: bold;
 }
 
+object {
+    width: 100%;
+    max-width: fit-content;
+}
+
 /* Estilos responsivos para dispositivos móviles */
 
 @media screen and (max-width: 600px) {
