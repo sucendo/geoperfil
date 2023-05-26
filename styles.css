@@ -136,4 +136,10 @@ button:hover {
     display: block;
     margin-bottom: 10px;
   }
+  ul{
+    padding: 0px;
+  }
+  nav li {
+    padding: 0px 0px;
+  }  
 }
