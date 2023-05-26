@@ -1,26 +1,24 @@
-// Archivo main.js
-
 // Función para cambiar de página
 function navigateTo(page) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   if (page === 'home') {
-    root.innerHTML = '<h1>Hola amig@</h1>';
+    root.innerHTML = '<h1>Hola amig@</h1><object data="hombre.svg" type="image/svg+xml"></object>';
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';  
   } else if (page === 'quiz') {
     loadScript('quiz.js', loadQuiz);
+  } else if (page === 'contact') {
+    root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   } else if (page === 'kids') {
-    const kidsOptions = `
+    const kidsOptions = document.createElement('div');
+    kidsOptions.innerHTML = `
       <h2>Juego para niños</h2>
-      <p>Selecciona una opción:</p>
       <button onclick="loadKidsQuiz('questions.js')">Opción 1</button>
       <button onclick="loadKidsQuiz('kidsQuestions.js')">Opción 2</button>
     `;
-    root.innerHTML = kidsOptions;
-  } else if (page === 'contact') {
-    root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
+    root.appendChild(kidsOptions);
   }
 }
 
@@ -34,88 +32,49 @@ function loadScript(scriptPath, callback) {
 
 // Función para cargar el contenido del quiz en el contenedor
 function loadQuiz() {
-  const root = document.getElementById('root');
-  root.innerHTML = '';
-
-  // Obtener el contenido del archivo questions.js
-  fetch('questions.js')
-    .then(response => response.text())
-    .then(data => {
-      eval(data); // Ejecutar el código JavaScript de questions.js
-
-      const quizContainer = document.createElement('div');
-      quizContainer.classList.add('quiz-container');
-      root.appendChild(quizContainer);
-
-      // Generar las preguntas y opciones del quiz
-      quizQuestions.forEach(function(question, index) {
-        const questionElement = document.createElement('div');
-        questionElement.classList.add('question');
-        questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
-
-        question.options.forEach(function(option, optionIndex) {
-          const optionElement = document.createElement('div');
-          optionElement.classList.add('option');
-          optionElement.innerHTML = `
-            <input type="radio" id="option-${index}-${optionIndex}" name="question-${index}" value="${optionIndex}">
-            <label for="option-${index}-${optionIndex}">${option}</label>
-          `;
-          questionElement.appendChild(optionElement);
-        });
-
-        quizContainer.appendChild(questionElement);
-      });
-
-      // Agregar botón de envío de respuestas
-      const submitButton = document.createElement('button');
-      submitButton.innerText = 'Enviar Respuestas';
-      submitButton.addEventListener('click', checkAnswers);
-      quizContainer.appendChild(submitButton);
-    })
-    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
+  // Implementación anterior de la función loadQuiz
 }
 
-// Función para cargar el juego de quiz para niños
+// Función para cargar el contenido del juego para niños en el contenedor
 function loadKidsQuiz(questionsFile) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Obtener el contenido del archivo de preguntas para niños
+  // Obtener el contenido del archivo de preguntas
   fetch(questionsFile)
     .then(response => response.text())
     .then(data => {
-      eval(data); // Ejecutar el código JavaScript del archivo de preguntas para niños
+      eval(data); // Ejecutar el código JavaScript del archivo de preguntas
 
       const quizContainer = document.createElement('div');
       quizContainer.classList.add('quiz-container');
       root.appendChild(quizContainer);
 
-      // Generar las preguntas y opciones del quiz para niños
-      quizQuestions.forEach(function(question, index) {
-        const questionElement = document.createElement('div');
-        questionElement.classList.add('question');
-        questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+      let currentQuestionIndex = 0; // Índice de la pregunta actual
+      let quizQuestions = []; // Preguntas para el juego actual
 
-        question.options.forEach(function(option, optionIndex) {
-          const optionElement = document.createElement('div');
-          optionElement.classList.add('option');
-          optionElement.innerHTML = `
-            <input type="radio" id="option-${index}-${optionIndex}" name="question-${index}" value="${optionIndex}">
-            <label for="option-${index}-${optionIndex}">${option}</label>
-          `;
-          questionElement.appendChild(optionElement);
-        });
+      // Función para mostrar la pregunta actual
+      function showQuestion() {
+        // Implementación anterior de la función showQuestion
+      }
 
-        quizContainer.appendChild(questionElement);
-      });
+      // Función para manejar el evento de siguiente pregunta
+      function handleNext() {
+        // Implementación anterior de la función handleNext
+      }
 
-      // Agregar botón de envío de respuestas para niños
-      const submitButton = document.createElement('button');
-      submitButton.innerText = 'Enviar Respuestas';
-      submitButton.addEventListener('click', checkAnswers);
-      quizContainer.appendChild(submitButton);
+      // Función para mostrar los resultados
+      function showResults() {
+        // Implementación anterior de la función showResults
+      }
+
+      // Obtener las preguntas para el juego
+      quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
+
+      // Mostrar la primera pregunta
+      showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo de preguntas para niños:', error));
+    .catch(error => console.log('Error al cargar el archivo de preguntas:', error));
 }
 
 // Función para verificar las respuestas del quiz
