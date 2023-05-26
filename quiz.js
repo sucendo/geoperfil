@@ -5,21 +5,25 @@ quizContainer.classList.add('quiz-container');
 root.appendChild(quizContainer);
 
 let currentQuestionIndex = 0; // Índice de la pregunta actual
+let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
-let correctCount = 0; // Contador de respuestas correctas
 
 // Función para iniciar el juego
 function startGame() {
+  allQuestions.forEach((question) => {
+    question.used = false;
+  });
   currentQuestionIndex = 0;
-  correctCount = 0;
-  quizQuestions = getRandomQuestions();
+  remainingQuestions = 10;
+  quizQuestions = getRandomQuestions(remainingQuestions);
   showQuestion();
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
-function getRandomQuestions() {
-  const availableQuestions = allQuestions.slice(); // Copia todas las preguntas
-  return shuffleArray(availableQuestions);
+function getRandomQuestions(count) {
+  const availableQuestions = allQuestions.filter((question) => !question.used);
+  const shuffledQuestions = shuffleArray(availableQuestions);
+  return shuffledQuestions.slice(0, count);
 }
 
 // Función para mostrar la pregunta actual
@@ -30,7 +34,7 @@ function showQuestion() {
   questionElement.classList.add('question');
   questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
 
-  question.options.forEach(function (option, optionIndex) {
+  question.options.forEach(function(option, optionIndex) {
     const optionElement = document.createElement('div');
     optionElement.classList.add('option');
     optionElement.innerHTML = `
@@ -65,15 +69,13 @@ function handleNext() {
   if (selectedOption) {
     const userAnswer = parseInt(selectedOption.value);
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    const correctAnswer = currentQuestion.correctAnswer;
-
-    if (userAnswer === correctAnswer) {
-      correctCount++;
-    }
+    currentQuestion.userAnswer = userAnswer;
+    currentQuestion.used = true;
 
     currentQuestionIndex++;
+    remainingQuestions--;
 
-    if (currentQuestionIndex < quizQuestions.length) {
+    if (remainingQuestions > 0) {
       showQuestion();
     } else {
       showResults();
@@ -87,7 +89,9 @@ function handleNext() {
 function showResults() {
   quizContainer.innerHTML = '<h2>Resultados</h2>';
 
-  quizQuestions.forEach(function (question, index) {
+  let correctCount = 0;
+
+  quizQuestions.forEach(function(question, index) {
     const questionElement = document.createElement('div');
     questionElement.classList.add('result');
     questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
@@ -96,7 +100,14 @@ function showResults() {
     const correctAnswer = question.correctAnswer;
     const isCorrect = userAnswer === correctAnswer;
 
-    const options = question.options.map(function (option, optionIndex) {
+    if (isCorrect) {
+      correctCount++;
+      questionElement.classList.add('correct');
+    } else {
+      questionElement.classList.add('incorrect');
+    }
+
+    const options = question.options.map(function(option, optionIndex) {
       const optionElement = document.createElement('div');
       optionElement.classList.add('option');
       optionElement.innerHTML = `
@@ -115,7 +126,7 @@ function showResults() {
       return optionElement;
     });
 
-    options.forEach(function (option) {
+    options.forEach(function(option) {
       questionElement.appendChild(option);
     });
 
@@ -124,7 +135,7 @@ function showResults() {
 
   const scoreElement = document.createElement('p');
   scoreElement.classList.add('score');
-  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${quizQuestions.length}.`;
+  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
   quizContainer.appendChild(scoreElement);
 }
 
