@@ -148,5 +148,115 @@ const kidsQuestions = [
     question: "¿Cuál es la capital de Italia?",
     options: ["París", "Londres", "Roma", "Berlín"],
     correctAnswer: 2
+  },
+  {
+    question: "¿Cuántos dientes tiene un adulto?",
+    options: ["20 dientes", "28 dientes", "32 dientes", "36 dientes"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es el resultado de restar 9 - 5?",
+    options: ["2", "3", "4", "5"],
+    correctAnswer: 1
+  },
+  {
+    question: "¿Cuántas horas hay en un día?",
+    options: ["12 horas", "18 horas", "24 horas", "30 horas"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es la capital de Alemania?",
+    options: ["París", "Londres", "Berlín", "Roma"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuántos lados tiene un pentágono?",
+    options: ["3 lados", "4 lados", "5 lados", "6 lados"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es el continente más poblado del mundo?",
+    options: ["Asia", "África", "Europa", "América"],
+    correctAnswer: 0
+  },
+  {
+    question: "¿Cuántas alas tiene una abeja?",
+    options: ["1 ala", "2 alas", "4 alas", "6 alas"],
+    correctAnswer: 1
+  },
+  {
+    question: "¿Cuántos kilómetros hay en una milla?",
+    options: ["1 kilómetro", "1.5 kilómetros", "2 kilómetros", "2.5 kilómetros"],
+    correctAnswer: 1
+  },
+  {
+    question: "¿Cuántas sílabas tiene la palabra 'coche'?",
+    options: ["1 sílaba", "2 sílabas", "3 sílabas", "4 sílabas"],
+    correctAnswer: 1
+  },
+  {
+    question: "¿Cuál es el ave que no puede volar?",
+    options: ["Pingüino", "Águila", "Búho", "Colibrí"],
+    correctAnswer: 0
+  },
+  {
+    question: "¿Cuántos lados tiene un hexágono?",
+    options: ["4 lados", "5 lados", "6 lados", "7 lados"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuántos días tiene un año bisiesto?",
+    options: ["365 días", "366 días", "367 días", "368 días"],
+    correctAnswer: 1
+  },
+  {
+    question: "¿Cuál es el río más largo del mundo?",
+    options: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
+    correctAnswer: 1
+  },
+  {
+    question: "¿Cuántas horas hay en un minuto?",
+    options: ["30 horas", "45 horas", "60 horas", "75 horas"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es la capital de Estados Unidos?",
+    options: ["Washington D.C.", "Nueva York", "Los Ángeles", "Chicago"],
+    correctAnswer: 0
+  },
+  {
+    question: "¿Cuántos lados tiene un octógono?",
+    options: ["6 lados", "7 lados", "8 lados", "9 lados"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuántos huesos tiene la columna vertebral?",
+    options: ["12 huesos", "24 huesos", "33 huesos", "42 huesos"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es el animal más rápido del mundo?",
+    options: ["Guepardo", "León", "Tortuga", "Elefante"],
+    correctAnswer: 0
+  },
+  {
+    question: "¿Cuántos metros hay en un kilómetro?",
+    options: ["100 metros", "500 metros", "1000 metros", "1500 metros"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es el resultado de multiplicar 6 x 4?",
+    options: ["18", "20", "24", "30"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuántos continentes hay en el mundo?",
+    options: ["4 continentes", "5 continentes", "6 continentes", "7 continentes"],
+    correctAnswer: 3
+  },
+  {
+    question: "¿Cuántos jugadores hay en un equipo de baloncesto?",
+    options: ["4 jugadores", "5 jugadores", "6 jugadores", "7 jugadores"],
+    correctAnswer: 1
   }
 ];
