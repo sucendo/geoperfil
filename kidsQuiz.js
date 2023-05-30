@@ -50,6 +50,14 @@ function startGame() {
         quizContainer.appendChild(questionElement);
       }
 
+      // Función para manejar la respuesta seleccionada por el usuario
+      function handleAnswer(optionIndex) {
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+        if (currentQuestion) {
+          currentQuestion.userAnswer = optionIndex;
+        }
+      }
+
       // Función para manejar el evento de siguiente pregunta
       function handleNext() {
         const selectedOption = document.querySelector('input[name="question"]:checked');
@@ -136,13 +144,7 @@ function startGame() {
      // Mostrar la primera pregunta
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
-}
-
-// Función para manejar la respuesta seleccionada por el usuario
-function handleAnswer(optionIndex) {
-  const currentQuestion = quizQuestions[currentQuestionIndex];
-  currentQuestion.userAnswer = optionIndex;
+    .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
