@@ -34,12 +34,10 @@ function startGame() {
         questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
 
         question.options.forEach(function(option, optionIndex) {
-          const optionElement = document.createElement('div');
+          const optionElement = document.createElement('button');
           optionElement.classList.add('option');
-          optionElement.innerHTML = `
-            <input type="radio" id="option-${optionIndex}" name="question" value="${optionIndex}">
-            <label for="option-${optionIndex}">${option}</label>
-          `;
+          optionElement.innerText = option;
+          optionElement.addEventListener('click', () => handleAnswer(optionIndex));
           questionElement.appendChild(optionElement);
         });
 
@@ -135,10 +133,16 @@ function startGame() {
       // Obtener las preguntas para el juego
       quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
 
-      // Mostrar la primera pregunta
+     // Mostrar la primera pregunta
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
+    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
+}
+
+// Función para manejar la respuesta seleccionada por el usuario
+function handleAnswer(optionIndex) {
+  const currentQuestion = quizQuestions[currentQuestionIndex];
+  currentQuestion.userAnswer = optionIndex;
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
