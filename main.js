@@ -259,8 +259,35 @@ function loadKids() {
 }
 
 // Función para verificar las respuestas del quiz
+// Función para verificar las respuestas seleccionadas por el usuario
 function checkAnswers() {
-  // Implementación anterior de la función checkAnswers
+  const root = document.getElementById('root');
+  const quizContainer = root.querySelector('.quiz-container');
+
+  const selectedOptions = quizContainer.querySelectorAll('input[type="radio"]:checked');
+  const userAnswers = Array.from(selectedOptions).map(option => parseInt(option.value));
+
+  let correctCount = 0;
+
+  quizQuestions.forEach(function(question, index) {
+    const userAnswer = userAnswers[index];
+    const correctAnswer = question.correctAnswer;
+
+    const questionElement = quizContainer.querySelector(`[name="question-${index}"]`);
+
+    if (userAnswer === correctAnswer) {
+      questionElement.classList.add('correct');
+      correctCount++;
+    } else {
+      questionElement.classList.add('incorrect');
+    }
+
+    questionElement.disabled = true;
+  });
+
+  const resultMessage = document.createElement('p');
+  resultMessage.innerText = `Obtuviste ${correctCount} respuestas correctas de ${quizQuestions.length}.`;
+  quizContainer.appendChild(resultMessage);
 }
 
 // Manejo de eventos de navegación
