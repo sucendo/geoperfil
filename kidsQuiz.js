@@ -41,10 +41,10 @@ function startGame() {
           questionElement.appendChild(optionElement);
         });
 
-        const nextButton = document.createElement('button');
+        /*const nextButton = document.createElement('button');
         nextButton.innerText = 'Siguiente';
         nextButton.addEventListener('click', handleNext);
-        questionElement.appendChild(nextButton);
+        questionElement.appendChild(nextButton);*/
 
         quizContainer.innerHTML = '';
         quizContainer.appendChild(questionElement);
