@@ -104,7 +104,7 @@ function loadKids() {
       }
 
       // Función para mostrar los resultados
-     function showResults() {
+      function showResults() {
         quizContainer.innerHTML = '<h2>Resultados</h2>';
 
         let correctCount = 0;
