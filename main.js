@@ -8,9 +8,9 @@ function navigateTo(page) {
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';  
   } else if (page === 'quiz') {
-    loadScript('quiz.js', loadQuiz);
+    loadQuiz();
   } else if (page === 'kids') {
-    loadScript('kidsQuiz.js', loadKids);
+    loadKids();
   } else if (page === 'blog') {
     root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';  
   } else if (page === 'contact') {
