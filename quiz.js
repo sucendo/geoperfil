@@ -8,12 +8,12 @@ let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
 
 // Función para iniciar el juego
-function startGame() {
+function startGame(questions) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Obtener el contenido del archivo questions.js
-  fetch('questions.js')
+  fetch(questions)
     .then(response => response.text())
     .then(data => {
       eval(data); // Ejecutar el código JavaScript de questions.js
