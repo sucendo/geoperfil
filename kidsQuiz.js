@@ -14,7 +14,7 @@ function startGame() {
   root.innerHTML = '';
 
   // Obtener el contenido del archivo questions.js
-  fetch('questions.js')
+  fetch('kidsQuestions.js')
     .then(response => response.text())
     .then(data => {
       eval(data); // Ejecutar el código JavaScript de questions.js
