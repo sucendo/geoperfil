@@ -127,7 +127,7 @@ function startGame() {
         quizContainer.appendChild(scoreElement);
 
         const playAgainButton = document.createElement('button');
-        playAgainButton.innerText = 'Jugar de nuevo';
+        playAgainButton.innerText = '¿Volver a jugar?';
         playAgainButton.addEventListener('click', startGame);
         quizContainer.appendChild(playAgainButton);
       }
