@@ -7,9 +7,9 @@ let currentQuestionIndex = 0; // Índice de la pregunta actual
 let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
 
-    // Función para iniciar el juego
-    function startGame() {
-      const root = document.getElementById('root');
+// Función para iniciar el juego
+function startGame() {
+  const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Obtener el contenido del archivo kidsQuestions.js
@@ -136,23 +136,21 @@ let quizQuestions = []; // Preguntas para el juego actual
     .catch(error => console.log('Error al cargar el archivo questions.js:', error));
 }
 
-    // Función para obtener un conjunto de preguntas aleatorias
-    function getRandomQuestions(count) {
-      const availableQuestions = allQuestions.filter((question) => !question.used);
-      const shuffledQuestions = shuffleArray(availableQuestions);
-      return shuffledQuestions.slice(0, count);
-    }
+// Función para obtener un conjunto de preguntas aleatorias
+function getRandomQuestions(count) {
+  const availableQuestions = allQuestions.filter((question) => !question.used);
+  const shuffledQuestions = shuffleArray(availableQuestions);
+  return shuffledQuestions.slice(0, count);
+}
 
+// Función para mezclar un array utilizando el algoritmo de Fisher-Yates
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
-
-    // Función para mezclar un array utilizando el algoritmo de Fisher-Yates
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    // Iniciar el juego al cargar la página
-    startGame();
+// Iniciar el juego al cargar la página
+startGame();
