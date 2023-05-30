@@ -43,7 +43,7 @@ function loadKids() {
   root.innerHTML = '';
 
   // Cargar el archivo kidsQuiz.js de forma dinámica
-  loadScript('quiz.js', function() {
+  loadScript('kidsQuiz.js', function() {
     // Llamar a la función startGame del archivo kidsQuiz.js
     startGame();
   });
