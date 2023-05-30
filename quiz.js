@@ -1,8 +1,7 @@
 // Elementos del DOM
-const root = document.getElementById('root');
 const quizContainer = document.createElement('div');
 quizContainer.classList.add('quiz-container');
-root.appendChild(quizContainer);
+document.getElementById('root').appendChild(quizContainer);
 
 let currentQuestionIndex = 0; // Índice de la pregunta actual
 let remainingQuestions = 10; // Número de preguntas restantes
