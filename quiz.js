@@ -12,7 +12,7 @@ function startGame() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Obtener el contenido del archivo kidsQuestions.js
+  // Obtener el contenido del archivo questions.js
   fetch('questions.js')
     .then(response => response.text())
     .then(data => {
@@ -125,6 +125,11 @@ function startGame() {
         scoreElement.classList.add('score');
         scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
         quizContainer.appendChild(scoreElement);
+
+        const playAgainButton = document.createElement('button');
+        playAgainButton.innerText = 'Jugar de nuevo';
+        playAgainButton.addEventListener('click', startGame);
+        quizContainer.appendChild(playAgainButton);
       }
 
       // Obtener las preguntas para el juego
