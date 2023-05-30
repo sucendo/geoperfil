@@ -8,16 +8,22 @@ let currentQuestionIndex = 0; // Índice de la pregunta actual
 let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
 
-// Función para iniciar el juego
-function startGame() {
-  allQuestions.forEach((question) => {
-    question.used = false;
-  });
-  currentQuestionIndex = 0;
-  remainingQuestions = 10;
-  quizQuestions = getRandomQuestions(remainingQuestions);
-  showQuestion();
-}
+// Obtener el contenido del archivo questions.js
+fetch('questions.js')
+  .then(response => response.text())
+  .then(data => {
+    eval(data); // Ejecutar el código JavaScript de questions.js
+
+    // Función para iniciar el juego
+    function startGame() {
+      allQuestions.forEach((question) => {
+        question.used = false;
+      });
+      currentQuestionIndex = 0;
+      remainingQuestions = 10;
+      quizQuestions = getRandomQuestions(remainingQuestions);
+      showQuestion();
+    }
 
 // Función para obtener un conjunto de preguntas aleatorias
 function getRandomQuestions(count) {
@@ -140,4 +146,5 @@ function showResults() {
 }
 
 // Iniciar el juego al cargar la página
-startGame();
+    startGame();
+  });
