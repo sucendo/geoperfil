@@ -86,8 +86,6 @@ function startGame() {
           } else {
             showResults();
           }
-        } else {
-          alert('Por favor, selecciona una opción.');
         }
       }
 
