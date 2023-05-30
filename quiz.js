@@ -13,10 +13,10 @@ let quizQuestions = []; // Preguntas para el juego actual
   root.innerHTML = '';
 
   // Obtener el contenido del archivo kidsQuestions.js
-  fetch('kidsQuestions.js')
+  fetch('questions.js')
     .then(response => response.text())
     .then(data => {
-      eval(data); // Ejecutar el código JavaScript de kidsQuestions.js
+      eval(data); // Ejecutar el código JavaScript de questions.js
 
       const quizContainer = document.createElement('div');
       quizContainer.classList.add('quiz-container');
@@ -133,7 +133,7 @@ let quizQuestions = []; // Preguntas para el juego actual
       // Mostrar la primera pregunta
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
+    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
 }
 
     // Función para obtener un conjunto de preguntas aleatorias
