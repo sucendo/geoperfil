@@ -157,7 +157,7 @@ const kidsQuestions = [
   {
     question: "¿Cuál es el resultado de restar 9 - 5?",
     options: ["2", "3", "4", "5"],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     question: "¿Cuántas horas hay en un día?",
@@ -251,12 +251,17 @@ const kidsQuestions = [
   },
   {
     question: "¿Cuántos continentes hay en el mundo?",
-    options: ["4 continentes", "5 continentes", "6 continentes", "7 continentes"],
-    correctAnswer: 3
+    options: ["4 continentes", "5 continentes", "6 continentes", "8 continentes"],
+    correctAnswer: 2
   },
   {
     question: "¿Cuántos jugadores hay en un equipo de baloncesto?",
     options: ["4 jugadores", "5 jugadores", "6 jugadores", "7 jugadores"],
     correctAnswer: 1
-  }
+  },
+  {
+    question: "¿Cuál de estas provincias no pertenece a la Comunidad Autónoma de Castilla y León?",
+    options: ["Soria", "Palencia", "Lugo", "Valladolid"],
+    correctAnswer: 2
+  },
 ];
