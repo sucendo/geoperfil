@@ -284,11 +284,6 @@ function loadKids() {
     .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
 }
 
-// Función para verificar las respuestas del quiz
-function checkAnswers() {
-  // Implementación anterior de la función checkAnswers
-}
-
 // Manejo de eventos de navegación
 document.addEventListener('DOMContentLoaded', function() {
   const links = document.querySelectorAll('nav a');
