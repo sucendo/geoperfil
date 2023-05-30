@@ -153,4 +153,4 @@ function shuffleArray(array) {
 }
 
 // Iniciar el juego al cargar la página
-startGame();
+//startGame();
