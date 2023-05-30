@@ -91,59 +91,60 @@ function loadQuiz() {
           alert('Por favor, selecciona una opción.');
         }
       }
-
+    
+     // Función para mostrar los resultados
      function showResults() {
-  quizContainer.innerHTML = '<h2>Resultados</h2>';
+        quizContainer.innerHTML = '<h2>Resultados</h2>';
 
-  let correctCount = 0;
+        let correctCount = 0;
 
-  quizQuestions.forEach(function(question, index) {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('result');
-    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+        quizQuestions.forEach(function(question, index) {
+          const questionElement = document.createElement('div');
+          questionElement.classList.add('result');
+          questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
 
-    const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
-    const correctAnswer = question.correctAnswer;
-    const isCorrect = userAnswer === correctAnswer;
+          const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
+          const correctAnswer = question.correctAnswer;
+          const isCorrect = userAnswer === correctAnswer;
 
-    if (isCorrect) {
-      correctCount++;
-      questionElement.classList.add('correct');
-    } else {
-      questionElement.classList.add('incorrect');
-    }
+          if (isCorrect) {
+            correctCount++;
+            questionElement.classList.add('correct');
+          } else {
+            questionElement.classList.add('incorrect');
+          }
 
-    const options = question.options.map(function(option, optionIndex) {
-      const optionElement = document.createElement('div');
-      optionElement.classList.add('option');
-      optionElement.innerHTML = `
-        <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
-        <label for="result-option-${optionIndex}">${option}</label>
-      `;
+          const options = question.options.map(function(option, optionIndex) {
+            const optionElement = document.createElement('div');
+            optionElement.classList.add('option');
+            optionElement.innerHTML = `
+              <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
+              <label for="result-option-${optionIndex}">${option}</label>
+            `;
 
-      if (optionIndex === userAnswer) {
-        optionElement.classList.add('selected');
+            if (optionIndex === userAnswer) {
+              optionElement.classList.add('selected');
+            }
+
+            if (optionIndex === correctAnswer) {
+              optionElement.classList.add('correct-answer');
+            }
+
+            return optionElement;
+          });
+
+          options.forEach(function(option) {
+            questionElement.appendChild(option);
+          });
+
+          quizContainer.appendChild(questionElement);
+        });
+
+        const scoreElement = document.createElement('p');
+        scoreElement.classList.add('score');
+        scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
+        quizContainer.appendChild(scoreElement);
       }
-
-      if (optionIndex === correctAnswer) {
-        optionElement.classList.add('correct-answer');
-      }
-
-      return optionElement;
-    });
-
-    options.forEach(function(option) {
-      questionElement.appendChild(option);
-    });
-
-    quizContainer.appendChild(questionElement);
-  });
-
-  const scoreElement = document.createElement('p');
-  scoreElement.classList.add('score');
-  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
-  quizContainer.appendChild(scoreElement);
-}
 
       // Obtener las preguntas para el juego
       quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
@@ -221,7 +222,7 @@ function loadKids() {
       }
 
       // Función para mostrar los resultados
-      function showResults() {
+     function showResults() {
         quizContainer.innerHTML = '<h2>Resultados</h2>';
 
         let correctCount = 0;
@@ -229,36 +230,49 @@ function loadKids() {
         quizQuestions.forEach(function(question, index) {
           const questionElement = document.createElement('div');
           questionElement.classList.add('result');
-
           questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
 
-          const userAnswer = question.userAnswer;
+          const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
           const correctAnswer = question.correctAnswer;
+          const isCorrect = userAnswer === correctAnswer;
 
-          if (userAnswer === correctAnswer) {
-            questionElement.classList.add('correct');
+          if (isCorrect) {
             correctCount++;
+            questionElement.classList.add('correct');
           } else {
             questionElement.classList.add('incorrect');
           }
 
-          const options = question.options.map((option, optionIndex) => {
+          const options = question.options.map(function(option, optionIndex) {
             const optionElement = document.createElement('div');
+            optionElement.classList.add('option');
             optionElement.innerHTML = `
-              <input type="radio" disabled ${optionIndex === userAnswer ? 'checked' : ''}>
-              <label>${option}</label>
+              <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
+              <label for="result-option-${optionIndex}">${option}</label>
             `;
-            return optionElement.outerHTML;
+
+            if (optionIndex === userAnswer) {
+              optionElement.classList.add('selected');
+            }
+
+            if (optionIndex === correctAnswer) {
+              optionElement.classList.add('correct-answer');
+            }
+
+            return optionElement;
           });
 
-          questionElement.innerHTML += options.join('');
+          options.forEach(function(option) {
+            questionElement.appendChild(option);
+          });
 
           quizContainer.appendChild(questionElement);
         });
 
-        const resultMessage = document.createElement('p');
-        resultMessage.innerText = `Obtuviste ${correctCount} respuestas correctas de ${quizQuestions.length}.`;
-        quizContainer.appendChild(resultMessage);
+        const scoreElement = document.createElement('p');
+        scoreElement.classList.add('score');
+        scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
+        quizContainer.appendChild(scoreElement);
       }
 
       // Obtener las preguntas para el juego
