@@ -6,6 +6,7 @@ document.getElementById('root').appendChild(quizContainer);
 let currentQuestionIndex = 0; // Índice de la pregunta actual
 let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
+let countdownTimer; // Temporizador de cuenta regresiva
 
 // Función para iniciar el juego
 function startGame() {
@@ -41,36 +42,46 @@ function startGame() {
           questionElement.appendChild(optionElement);
         });
 
-        /*const nextButton = document.createElement('button');
-        nextButton.innerText = 'Siguiente';
-        nextButton.addEventListener('click', handleNext);
-        questionElement.appendChild(nextButton);*/
+        const countdownElement = document.createElement('div');
+        countdownElement.classList.add('countdown');
+        countdownElement.innerText = '10';
+        questionElement.appendChild(countdownElement);
+
+        startCountdown(countdownElement);
 
         quizContainer.innerHTML = '';
         quizContainer.appendChild(questionElement);
       }
 
-      // Función para manejar la respuesta seleccionada por el usuario
-      function handleAnswer(optionIndex) {
-        const currentQuestion = quizQuestions[currentQuestionIndex];
-        if (currentQuestion) {
-          currentQuestion.userAnswer = optionIndex;
-          handleNext();
-        }
+      // Función para iniciar el temporizador de cuenta regresiva
+      function startCountdown(countdownElement) {
+        let timeRemaining = 10;
+
+        countdownTimer = setInterval(function() {
+          timeRemaining--;
+          countdownElement.innerText = timeRemaining;
+
+          if (timeRemaining === 0) {
+            clearInterval(countdownTimer);
+            handleNext();
+          }
+        }, 1000);
+      }
+
+      // Función para reiniciar el temporizador de cuenta regresiva
+      function resetCountdown() {
+        clearInterval(countdownTimer);
       }
 
       // Función para manejar el evento de siguiente pregunta
       function handleNext() {
-        const selectedOption = document.querySelector('input[name="question"]:checked');
+        const currentQuestion = quizQuestions[currentQuestionIndex];
 
-        if (selectedOption) {
-          const userAnswer = parseInt(selectedOption.value);
-          const currentQuestion = quizQuestions[currentQuestionIndex];
-          currentQuestion.userAnswer = userAnswer;
-
+        if (currentQuestion.userAnswer !== null) {
           currentQuestionIndex++;
 
           if (currentQuestionIndex < quizQuestions.length) {
+            resetCountdown();
             showQuestion();
           } else {
             showResults();
