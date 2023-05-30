@@ -8,9 +8,9 @@ function navigateTo(page) {
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';  
   } else if (page === 'quiz') {
-    loadQuiz();
+    loadQuiz("questions.js");
   } else if (page === 'kids') {
-    loadKids();
+    loadQuiz("kidsQuestions.js");
   } else if (page === 'blog') {
     root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';  
   } else if (page === 'contact') {
@@ -26,14 +26,14 @@ function loadScript(scriptPath, callback) {
   document.head.appendChild(script);
 }
 
-function loadQuiz() {
+function loadQuiz(questions) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Cargar el archivo quiz.js de forma dinámica
   loadScript('quiz.js', function() {
     // Llamar a la función startGame del archivo quiz.js
-    startGame();
+    startGame(questions);
   });
 }
 
