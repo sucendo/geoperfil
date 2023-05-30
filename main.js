@@ -209,62 +209,45 @@ function loadKids() {
       }
 
       // Función para mostrar los resultados
-      // Función para mostrar los resultados
-function showResults() {
-  quizContainer.innerHTML = '<h2>Resultados</h2>';
+      function showResults() {
+        quizContainer.innerHTML = '<h2>Resultados</h2>';
 
-  let correctCount = 0;
+        let correctCount = 0;
 
-  quizQuestions.forEach(function(question, index) {
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('result');
-    questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
+        quizQuestions.forEach(function(question, index) {
+          const questionElement = document.createElement('div');
+          questionElement.classList.add('result');
 
-    const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
-    const correctAnswer = question.correctAnswer;
-    const isCorrect = userAnswer === correctAnswer;
+          questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
 
-    if (isCorrect) {
-      correctCount++;
-      questionElement.classList.add('correct');
-    } else {
-      questionElement.classList.add('incorrect');
-      const correctOptionIndex = question.options.findIndex((option, index) => index === correctAnswer);
-      const correctOptionElement = questionElement.querySelector(`#result-option-${correctOptionIndex}`);
-      correctOptionElement.classList.add('correct-answer');
-    }
+          const userAnswer = question.userAnswer;
+          const correctAnswer = question.correctAnswer;
 
-    const options = question.options.map(function(option, optionIndex) {
-      const optionElement = document.createElement('div');
-      optionElement.classList.add('option');
-      optionElement.innerHTML = `
-        <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
-        <label for="result-option-${optionIndex}">${option}</label>
-      `;
+          if (userAnswer === correctAnswer) {
+            questionElement.classList.add('correct');
+            correctCount++;
+          } else {
+            questionElement.classList.add('incorrect');
+          }
 
-      if (optionIndex === userAnswer) {
-        optionElement.classList.add('selected');
+          const options = question.options.map((option, optionIndex) => {
+            const optionElement = document.createElement('div');
+            optionElement.innerHTML = `
+              <input type="radio" disabled ${optionIndex === userAnswer ? 'checked' : ''}>
+              <label>${option}</label>
+            `;
+            return optionElement.outerHTML;
+          });
+
+          questionElement.innerHTML += options.join('');
+
+          quizContainer.appendChild(questionElement);
+        });
+
+        const resultMessage = document.createElement('p');
+        resultMessage.innerText = `Obtuviste ${correctCount} respuestas correctas de ${quizQuestions.length}.`;
+        quizContainer.appendChild(resultMessage);
       }
-
-      if (optionIndex === correctAnswer) {
-        optionElement.classList.add('correct-answer');
-      }
-
-      return optionElement;
-    });
-
-    options.forEach(function(option) {
-      questionElement.appendChild(option);
-    });
-
-    quizContainer.appendChild(questionElement);
-  });
-
-  const scoreElement = document.createElement('p');
-  scoreElement.classList.add('score');
-  scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
-  quizContainer.appendChild(scoreElement);
-}
 
       // Obtener las preguntas para el juego
       quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
@@ -273,6 +256,11 @@ function showResults() {
       showQuestion();
     })
     .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
+}
+
+// Función para verificar las respuestas del quiz
+function checkAnswers() {
+  // Implementación anterior de la función checkAnswers
 }
 
 // Manejo de eventos de navegación
