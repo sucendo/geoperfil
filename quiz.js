@@ -9,15 +9,15 @@ let quizQuestions = []; // Preguntas para el juego actual
 let countdownTimer; // Temporizador de cuenta regresiva
 
 // Función para iniciar el juego
-function startGame(questions) {
+function startGame(questionsFile) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Obtener el contenido del archivo questions.js
-  fetch(questions)
+  // Obtener el contenido del archivo proporcionado por la variable questionsFile
+  fetch(questionsFile)
     .then(response => response.text())
     .then(data => {
-      eval(data); // Ejecutar el código JavaScript de questions.js
+      eval(data); // Ejecutar el código JavaScript de questionsFile
 
       const quizContainer = document.createElement('div');
       quizContainer.classList.add('quiz-container');
@@ -161,7 +161,7 @@ function startGame(questions) {
       // Mostrar la primera pregunta
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
+    .catch(error => console.log('Error al cargar el archivo ' + questionsFile + ':', error));
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
