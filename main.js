@@ -16,7 +16,7 @@ function navigateTo(page) {
     loadQuiz("questionsKids.js");
     updateURL('kids');
   } else if (page === 'blog') {
-    root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';
+    loadBlog();
     updateURL('blog');
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
