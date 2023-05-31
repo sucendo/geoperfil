@@ -8,8 +8,8 @@ let quizQuestions = []; // Preguntas para el juego actual
 let countdownTimer; // Temporizador de cuenta regresiva
 
 // Función para cargar las preguntas
-function loadQuestions() {
-  fetch('questions.js')
+function loadQuestions(questions) {
+  fetch(questions)
     .then(response => response.text())
     .then(data => {
       eval(data);
@@ -175,4 +175,4 @@ function shuffleArray(array) {
 }
 
 // Cargar las preguntas al iniciar
-loadQuestions();
+loadQuestions(questions);
