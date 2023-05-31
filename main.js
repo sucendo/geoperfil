@@ -24,45 +24,20 @@ function navigateTo(page) {
   }
 }
 
-// Función para cargar un script de forma dinámica
-function loadScript(scriptPath, callback) {
-  const script = document.createElement('script');
-  script.src = scriptPath;
-  script.onload = callback;
-  document.head.appendChild(script);
+// Función para actualizar la URL
+function updateURL(page) {
+  const url = window.location.href;
+  const baseURL = url.split('#')[0]; // Obtener la parte base de la URL sin el fragmento
+
+  if (page) {
+    const newURL = baseURL + '#' + page; // Construir la nueva URL con el fragmento de página
+    history.replaceState(null, '', newURL); // Reemplazar la URL actual sin recargar la página
+  } else {
+    history.replaceState(null, '', baseURL); // Restablecer la URL base si no hay fragmento de página
+  }
 }
 
-function loadQuiz(questionsFile) {
-  const root = document.getElementById('root');
-  root.innerHTML = '';
-
-  // Cargar el archivo de las preguntas de forma dinámica de la variable questionsFile
-  loadScript(questionsFile, function() {
-    // Llamar a la función startGame del archivo quiz.js
-    startGame(questionsFile);
-  });
-}
-
-function updateURL(section) {
-  const currentURL = window.location.href;
-  const baseURL = currentURL.split('#')[0]; // Obtener la parte base de la URL sin el fragmento
-
-  // Actualizar la URL reemplazando el fragmento con el nombre de la sección
-  const newURL = baseURL + (section ? '/' + section : '');
-  history.replaceState(null, null, newURL);
-}
-
-// Manejo de eventos de navegación
-document.addEventListener('DOMContentLoaded', function() {
-  const links = document.querySelectorAll('nav a');
-  links.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      const page = link.getAttribute('data-page');
-      navigateTo(page);
-    });
-  });
-});
+// Resto del código...
 
 // Navegar a la página de inicio por defecto al cargar la página
 navigateTo('home');
