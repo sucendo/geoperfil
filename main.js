@@ -30,7 +30,7 @@ function loadQuiz(questionsFile) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Cargar el archivo quiz.js de forma dinámica
+  // Cargar el archivo de las preguntas de forma dinámica de la variable questionsFile
   loadScript(questionsFile, function() {
     // Llamar a la función startGame del archivo quiz.js
     startGame(questionsFile);
