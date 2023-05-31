@@ -179,6 +179,3 @@ function shuffleArray(array) {
   }
   return array;
 }
-
-// Iniciar el juego al cargar la página
-startGame('questions.js');
