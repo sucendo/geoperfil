@@ -23,6 +23,9 @@ function startGame(questions) {
       quizContainer.classList.add('quiz-container');
       root.appendChild(quizContainer);
 
+      let currentQuestionIndex = 0; // Índice de la pregunta actual
+      let quizQuestions = []; // Preguntas para el juego actual
+
       // Función para mostrar la pregunta actual
       function showQuestion() {
         const question = quizQuestions[currentQuestionIndex];
@@ -70,19 +73,26 @@ function startGame(questions) {
         clearInterval(countdownTimer);
       }
 
+      // Función para manejar la respuesta seleccionada
+      function handleAnswer(optionIndex) {
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+        currentQuestion.userAnswer = optionIndex;
+
+        resetCountdown();
+        handleNext();
+      }
+
       // Función para manejar el evento de siguiente pregunta
       function handleNext() {
         const currentQuestion = quizQuestions[currentQuestionIndex];
 
-        if (currentQuestion.userAnswer !== null) {
-          currentQuestionIndex++;
+        currentQuestionIndex++;
 
-          if (currentQuestionIndex < quizQuestions.length) {
-            resetCountdown();
-            showQuestion();
-          } else {
-            showResults();
-          }
+        if (currentQuestionIndex < quizQuestions.length) {
+          resetCountdown();
+          showQuestion();
+        } else {
+          showResults();
         }
       }
 
@@ -148,7 +158,7 @@ function startGame(questions) {
       // Obtener las preguntas para el juego
       quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
 
-     // Mostrar la primera pregunta
+      // Mostrar la primera pregunta
       showQuestion();
     })
     .catch(error => console.log('Error al cargar el archivo questions.js:', error));
