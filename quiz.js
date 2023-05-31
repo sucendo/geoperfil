@@ -6,14 +6,15 @@ document.getElementById('root').appendChild(quizContainer);
 let currentQuestionIndex = 0; // Índice de la pregunta actual
 let remainingQuestions = 10; // Número de preguntas restantes
 let quizQuestions = []; // Preguntas para el juego actual
+let countdownTimer; // Temporizador de cuenta regresiva
 
 // Función para iniciar el juego
-function startGame(questions) {
+function startGame() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Obtener el contenido del archivo questions.js
-  fetch(questions)
+  fetch('kidsQuestions.js')
     .then(response => response.text())
     .then(data => {
       eval(data); // Ejecutar el código JavaScript de questions.js
@@ -34,42 +35,57 @@ function startGame(questions) {
         questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
 
         question.options.forEach(function(option, optionIndex) {
-          const optionElement = document.createElement('div');
+          const optionElement = document.createElement('button');
           optionElement.classList.add('option');
-          optionElement.innerHTML = `
-            <input type="radio" id="option-${optionIndex}" name="question" value="${optionIndex}">
-            <label for="option-${optionIndex}">${option}</label>
-          `;
+          optionElement.innerText = option;
+          optionElement.addEventListener('click', () => handleAnswer(optionIndex));
           questionElement.appendChild(optionElement);
         });
 
-        const nextButton = document.createElement('button');
-        nextButton.innerText = 'Siguiente';
-        nextButton.addEventListener('click', handleNext);
-        questionElement.appendChild(nextButton);
+        const countdownElement = document.createElement('div');
+        countdownElement.classList.add('countdown');
+        countdownElement.innerText = '10';
+        questionElement.appendChild(countdownElement);
+
+        startCountdown(countdownElement);
 
         quizContainer.innerHTML = '';
         quizContainer.appendChild(questionElement);
       }
 
+      // Función para iniciar el temporizador de cuenta regresiva
+      function startCountdown(countdownElement) {
+        let timeRemaining = 10;
+
+        countdownTimer = setInterval(function() {
+          timeRemaining--;
+          countdownElement.innerText = timeRemaining;
+
+          if (timeRemaining === 0) {
+            clearInterval(countdownTimer);
+            handleNext();
+          }
+        }, 1000);
+      }
+
+      // Función para reiniciar el temporizador de cuenta regresiva
+      function resetCountdown() {
+        clearInterval(countdownTimer);
+      }
+
       // Función para manejar el evento de siguiente pregunta
       function handleNext() {
-        const selectedOption = document.querySelector('input[name="question"]:checked');
+        const currentQuestion = quizQuestions[currentQuestionIndex];
 
-        if (selectedOption) {
-          const userAnswer = parseInt(selectedOption.value);
-          const currentQuestion = quizQuestions[currentQuestionIndex];
-          currentQuestion.userAnswer = userAnswer;
-
+        if (currentQuestion.userAnswer !== null) {
           currentQuestionIndex++;
 
           if (currentQuestionIndex < quizQuestions.length) {
+            resetCountdown();
             showQuestion();
           } else {
             showResults();
           }
-        } else {
-          alert('Por favor, selecciona una opción.');
         }
       }
 
@@ -135,10 +151,10 @@ function startGame(questions) {
       // Obtener las preguntas para el juego
       quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
 
-      // Mostrar la primera pregunta
+     // Mostrar la primera pregunta
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
+    .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
