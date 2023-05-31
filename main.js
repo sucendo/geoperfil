@@ -1,6 +1,3 @@
-// Importar la biblioteca de enrutamiento page.js
-import page from 'page';
-
 // Función para cambiar de página
 function navigateTo(page) {
   const root = document.getElementById('root');
@@ -17,7 +14,7 @@ function navigateTo(page) {
   } else if (page === 'blog') {
     root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';  
   } else if (page === 'contact') {
-    loadContact();
+    root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
   }
 }
 
@@ -40,38 +37,31 @@ function loadQuiz(questionsFile) {
   });
 }
 
-function loadContact() {
+// Función para cargar el contenido del quiz para niños en el contenedor
+/*
+function loadKids() {
   const root = document.getElementById('root');
-  root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
+  root.innerHTML = '';
+
+  // Cargar el archivo kidsQuiz.js de forma dinámica
+  loadScript('kidsQuiz.js', function() {
+    // Llamar a la función startGame del archivo kidsQuiz.js
+    startGame();
+  });
 }
+*/
 
-// Configurar las rutas y el enrutamiento con page.js
-page('/', function() {
-  navigateTo('home');
+// Manejo de eventos de navegación
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('nav a');
+  links.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const page = link.getAttribute('data-page');
+      navigateTo(page);
+    });
+  });
 });
-
-page('/about', function() {
-  navigateTo('about');
-});
-
-page('/quiz', function() {
-  navigateTo('quiz');
-});
-
-page('/kids', function() {
-  navigateTo('kids');
-});
-
-page('/blog', function() {
-  navigateTo('blog');
-});
-
-page('/contact', function() {
-  navigateTo('contact');
-});
-
-// Iniciar el enrutamiento
-page();
 
 // Navegar a la página de inicio por defecto al cargar la página
-page('/');
+navigateTo('home');
