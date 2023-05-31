@@ -1,4 +1,3 @@
-// Función para cambiar de página
 function navigateTo(page, pageTitle, url) {
   const root = document.getElementById('root');
   root.innerHTML = '';
@@ -16,7 +15,7 @@ function navigateTo(page, pageTitle, url) {
   } else if (page === 'contact') {
     loadContact(); // Cargar la página de contacto
     pageTitle = 'Contacto'; // Actualizar el título de la página
-    url = '/contacto'; // Actualizar la URL de la página
+    url = 'https://sucendo.github.io/geoperfil/contacto'; // Actualizar la URL de la página
   }
 
   // Actualizar el título de la página
