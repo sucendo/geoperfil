@@ -15,9 +15,9 @@ const allQuestions = [
     correctAnswer: 2
   },
   {
-    question: "¿Cuál es el color primario que se obtiene mezclando azul y amarillo?",
+    question: "¿Cuál es el color que se obtiene al mezclar los colores azul y amarillo?",
     options: ["Rojo", "Verde", "Naranja", "Morado"],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     question: "¿Cuántas estaciones del año hay?",
@@ -57,7 +57,7 @@ const allQuestions = [
   {
     question: "¿Cuántas provincias hay en España?",
     options: ["37 provincias", "48 provincias", "50 provincias", "52 provincias"],
-    correctAnswer: 0
+    correctAnswer: 2
   },
   {
     question: "¿Cuántos días tiene el mes de marzo?",
@@ -97,7 +97,7 @@ const allQuestions = [
   {
     question: "¿Cuántos continentes hay en el mundo?",
     options: ["4 continentes", "5 continentes", "6 continentes", "7 continentes"],
-    correctAnswer: 3
+    correctAnswer: 2
   },
   {
     question: "¿Cuántos jugadores hay en un equipo de fútbol?",
@@ -106,7 +106,7 @@ const allQuestions = [
   },
   {
     question: "¿Cuál es el animal que vuela más alto?",
-    options: ["Aguila", "Murciélago", "Colibrí", "Águila real"],
+    options: ["Águila", "Murciélago", "Colibrí", "Buítre"],
     correctAnswer: 0
   },
   {
@@ -215,11 +215,6 @@ const allQuestions = [
     correctAnswer: 1
   },
   {
-    question: "¿Cuántas horas hay en un minuto?",
-    options: ["30 horas", "45 horas", "60 horas", "75 horas"],
-    correctAnswer: 2
-  },
-  {
     question: "¿Cuál es la capital de Estados Unidos?",
     options: ["Washington D.C.", "Nueva York", "Los Ángeles", "Chicago"],
     correctAnswer: 0
@@ -232,6 +227,11 @@ const allQuestions = [
   {
     question: "¿Cuántos huesos tiene la columna vertebral?",
     options: ["12 huesos", "24 huesos", "33 huesos", "42 huesos"],
+    correctAnswer: 2
+  },
+  {
+    question: "¿Cuál es el resultado de multiplicar 8 x 7?",
+    options: ["47", "52", "56", "58"],
     correctAnswer: 2
   },
   {
