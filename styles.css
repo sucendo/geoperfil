@@ -137,6 +137,8 @@ g#hombre {
 
   button {
     padding: 8px 16px;
+    width: 90%;
+    font-size: 1em;
   }
 
   ul {
@@ -145,6 +147,10 @@ g#hombre {
 
   nav li {
     padding: 0px 0px;
+  }
+  
+  h3 {
+    font-size: 1.3em;
   }
 }
 
