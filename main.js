@@ -10,7 +10,7 @@ function navigateTo(page) {
   } else if (page === 'quiz') {
     loadQuiz("questions.js");
   } else if (page === 'kids') {
-    loadQuiz("kidsQuestions.js");
+    loadQuiz("questionsKids.js");
   } else if (page === 'blog') {
     root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';  
   } else if (page === 'contact') {
