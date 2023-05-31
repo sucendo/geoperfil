@@ -48,7 +48,7 @@ function updateURL(section) {
   const baseURL = currentURL.split('#')[0]; // Obtener la parte base de la URL sin el fragmento
 
   // Actualizar la URL reemplazando el fragmento con el nombre de la sección
-  const newURL = baseURL + (section ? '#' + section : '');
+  const newURL = baseURL + (section ? '/' + section : '');
   history.replaceState(null, null, newURL);
 }
 
