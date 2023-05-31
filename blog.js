@@ -3,7 +3,7 @@ const blogData = {
   articles: [
     {
       title: 'Explorando distancias cósmicas: Perspectivas de la verdad relativa en el universo',
-      content: 'Introducción:
+      content: `Introducción:
 En el vasto y enigmático universo, las distancias adquieren una nueva dimensión que desafía nuestra comprensión. En este artículo, nos sumergiremos en la magnitud de las distancias desde el centro de la Tierra hasta la Luna, desde el ecuador al centro de la Tierra, y exploraremos los conceptos de verdad relativa y absoluta en el contexto del espacio. Además, consideraremos cómo la relatividad de las distancias se hace evidente incluso en puntos extremos en la Tierra, como el Polo Norte y el Chimborazo. También exploraremos la fascinante distancia entre la sonda Voyager 1 y la estrella más cercana al sistema solar.
 
 El desafío de la verdad relativa en el espacio:
@@ -23,13 +23,11 @@ En términos de la estrella más cercana al sistema solar, conocida como Proxima
 El desafío de la verdad relativa en el espacio:
 Al explorar las distancias cósmicas, nos enfrentamos al desafío de comprender y apreciar la verdad relativa. Las enormes distancias en el espacio nos muestran nuestra propia pequeñez y la relatividad de nuestra perspectiva en el vasto cosmos. Nos invita a seguir explorando, cuestionando y expandiendo nuestros límites de conocimiento. La verdad absoluta puede ser inalcanzable en un universo tan vasto y complejo, pero a través de la búsqueda constante de la verdad relativa, podemos obtener una comprensión más profunda de nuestro lugar en el cosmos.
 
-En conclusión, el estudio de las distancias cósmicas nos brinda una perspectiva única sobre la verdad relativa en el espacio. Desde las distancias entre la Tierra y la Luna hasta los extremos en la Tierra como el Polo Norte y el Chimborazo, y la fascinante separación entre la Voyager 1 y la estrella más cercana, apreciamos la relatividad de nuestras percepciones y mediciones. La verdad relativa nos desafía a explorar, aprender y maravillarnos ante la vastedad del universo y nuestra propia existencia en él.
-'
+En conclusión, el estudio de las distancias cósmicas nos brinda una perspectiva única sobre la verdad relativa en el espacio. Desde las distancias entre la Tierra y la Luna hasta los extremos en la Tierra como el Polo Norte y el Chimborazo, y la fascinante separación entre la Voyager 1 y la estrella más cercana, apreciamos la relatividad de nuestras percepciones y mediciones. La verdad relativa nos desafía a explorar, aprender y maravillarnos ante la vastedad del universo y nuestra propia existencia en él.`
     },
     {
       title: 'Título del artículo 2',
       content: 'Contenido del artículo 2'
-    },
-    // ... otros artículos
+    }
   ]
 };
