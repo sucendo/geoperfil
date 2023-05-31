@@ -10,156 +10,84 @@ let countdownTimer; // Temporizador de cuenta regresiva
 
 // Función para iniciar el juego
 function startGame(questions) {
-  const root = document.getElementById('root');
-  root.innerHTML = '';
+  clearQuizContainer();
+  resetQuizState();
 
-  // Obtener el contenido del archivo questions.js
   fetch(questions)
     .then(response => response.text())
     .then(data => {
-      eval(data); // Ejecutar el código JavaScript de questions.js
-
-      const quizContainer = document.createElement('div');
-      quizContainer.classList.add('quiz-container');
-      root.appendChild(quizContainer);
-
-      let currentQuestionIndex = 0; // Índice de la pregunta actual
-      let quizQuestions = []; // Preguntas para el juego actual
-
-      // Función para mostrar la pregunta actual
-      function showQuestion() {
-        const question = quizQuestions[currentQuestionIndex];
-
-        const questionElement = document.createElement('div');
-        questionElement.classList.add('question');
-        questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
-
-        question.options.forEach(function(option, optionIndex) {
-          const optionElement = document.createElement('button');
-          optionElement.classList.add('option');
-          optionElement.innerText = option;
-          optionElement.addEventListener('click', () => handleAnswer(optionIndex));
-          questionElement.appendChild(optionElement);
-        });
-
-        const countdownElement = document.createElement('div');
-        countdownElement.classList.add('countdown');
-        countdownElement.innerText = '10';
-        questionElement.appendChild(countdownElement);
-
-        startCountdown(countdownElement);
-
-        quizContainer.innerHTML = '';
-        quizContainer.appendChild(questionElement);
-      }
-
-      // Función para iniciar el temporizador de cuenta regresiva
-      function startCountdown(countdownElement) {
-        let timeRemaining = 10;
-
-        countdownTimer = setInterval(function() {
-          timeRemaining--;
-          countdownElement.innerText = timeRemaining;
-
-          if (timeRemaining === 0) {
-            clearInterval(countdownTimer);
-            handleNext();
-          }
-        }, 1000);
-      }
-
-      // Función para reiniciar el temporizador de cuenta regresiva
-      function resetCountdown() {
-        clearInterval(countdownTimer);
-      }
-
-      // Función para manejar el evento de siguiente pregunta
-      function handleNext() {
-        const currentQuestion = quizQuestions[currentQuestionIndex];
-
-        if (currentQuestion.userAnswer !== null) {
-          currentQuestionIndex++;
-
-          if (currentQuestionIndex < quizQuestions.length) {
-            resetCountdown();
-            showQuestion();
-          } else {
-            showResults();
-          }
-        }
-      }
-
-      // Función para mostrar los resultados
-      function showResults() {
-        quizContainer.innerHTML = '<h2>Resultados</h2>';
-
-        let correctCount = 0;
-
-        quizQuestions.forEach(function(question, index) {
-          const questionElement = document.createElement('div');
-          questionElement.classList.add('result');
-          questionElement.innerHTML = `<h3>${index + 1}. ${question.question}</h3>`;
-
-          const userAnswer = question.hasOwnProperty('userAnswer') ? question.userAnswer : null;
-          const correctAnswer = question.correctAnswer;
-          const isCorrect = userAnswer === correctAnswer;
-
-          if (isCorrect) {
-            correctCount++;
-            questionElement.classList.add('correct');
-          } else {
-            questionElement.classList.add('incorrect');
-          }
-
-          const options = question.options.map(function(option, optionIndex) {
-            const optionElement = document.createElement('div');
-            optionElement.classList.add('option');
-            optionElement.innerHTML = `
-              <input type="radio" id="result-option-${optionIndex}" name="result-question-${index}" disabled>
-              <label for="result-option-${optionIndex}">${option}</label>
-            `;
-
-            if (optionIndex === userAnswer) {
-              optionElement.classList.add('selected');
-            }
-
-            if (optionIndex === correctAnswer) {
-              optionElement.classList.add('correct-answer');
-            }
-
-            return optionElement;
-          });
-
-          options.forEach(function(option) {
-            questionElement.appendChild(option);
-          });
-
-          quizContainer.appendChild(questionElement);
-        });
-
-        const scoreElement = document.createElement('p');
-        scoreElement.classList.add('score');
-        scoreElement.innerText = `Obtuviste ${correctCount} respuestas correctas de ${currentQuestionIndex}.`;
-        quizContainer.appendChild(scoreElement);
-
-        const playAgainButton = document.createElement('button');
-        playAgainButton.innerText = '¿Volver a jugar?';
-        playAgainButton.addEventListener('click', startGame);
-        quizContainer.appendChild(playAgainButton);
-      }
-
-      // Obtener las preguntas para el juego
-      quizQuestions = getRandomQuestions(10); // Obtener 10 preguntas aleatorias
-
-     // Mostrar la primera pregunta
+      eval(data);
+      quizQuestions = getRandomQuestions(remainingQuestions);
       showQuestion();
     })
-    .catch(error => console.log('Error al cargar el archivo kidsQuestions.js:', error));
+    .catch(error => console.log('Error al cargar el archivo questions.js:', error));
+}
+
+// Función para limpiar el contenedor del cuestionario
+function clearQuizContainer() {
+  quizContainer.innerHTML = '';
+}
+
+// Función para reiniciar el estado del cuestionario
+function resetQuizState() {
+  currentQuestionIndex = 0;
+  remainingQuestions = 10;
+  quizQuestions = [];
+  clearInterval(countdownTimer);
+}
+
+// Función para mostrar la pregunta actual
+function showQuestion() {
+  const question = quizQuestions[currentQuestionIndex];
+
+  const questionElement = document.createElement('div');
+  questionElement.classList.add('question');
+  questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
+
+  question.options.forEach((option, optionIndex) => {
+    const optionElement = createOptionButton(option, optionIndex);
+    questionElement.appendChild(optionElement);
+  });
+
+  quizContainer.appendChild(questionElement);
+
+  startCountdown();
+}
+
+// Función para crear un botón de opción
+function createOptionButton(option, optionIndex) {
+  const optionButton = document.createElement('button');
+  optionButton.classList.add('option');
+  optionButton.innerText = option;
+  optionButton.addEventListener('click', () => handleOptionSelection(optionIndex));
+  return optionButton;
+}
+
+// Función para manejar la selección de una opción
+function handleOptionSelection(optionIndex) {
+  const currentQuestion = quizQuestions[currentQuestionIndex];
+  currentQuestion.userAnswer = optionIndex;
+
+  clearInterval(countdownTimer);
+
+  if (currentQuestionIndex < quizQuestions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  } else {
+    showResults();
+  }
+}
+
+// Función para mostrar los resultados
+function showResults() {
+  clearQuizContainer();
+  // Código para mostrar los resultados
+  // ...
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
 function getRandomQuestions(count) {
-  const availableQuestions = allQuestions.filter((question) => !question.used);
+  const availableQuestions = allQuestions.filter(question => !question.used);
   const shuffledQuestions = shuffleArray(availableQuestions);
   return shuffledQuestions.slice(0, count);
 }
@@ -173,5 +101,25 @@ function shuffleArray(array) {
   return array;
 }
 
+// Función para iniciar el temporizador de cuenta regresiva
+function startCountdown() {
+  const countdownElement = document.createElement('div');
+  countdownElement.classList.add('countdown');
+  countdownElement.innerText = '10';
+  quizContainer.appendChild(countdownElement);
+
+  let timeRemaining = 10;
+
+  countdownTimer = setInterval(() => {
+    timeRemaining--;
+    countdownElement.innerText = timeRemaining;
+
+    if (timeRemaining === 0) {
+      clearInterval(countdownTimer);
+      handleOptionSelection(-1); // Opción inválida para indicar que el tiempo ha expirado
+    }
+  }, 1000);
+}
+
 // Iniciar el juego al cargar la página
-//startGame();
+// startGame();
