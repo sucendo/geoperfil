@@ -43,6 +43,40 @@ function loadQuiz(questionsFile) {
   });
 }
 
+function loadBlog() {
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+
+  // Realizar una solicitud HTTP para obtener el archivo JSON
+  fetch('blog.json')
+    .then(response => response.json())
+    .then(data => {
+      // Generar el contenido del blog a partir de los datos del archivo JSON
+      const blogContent = generateBlogContent(data);
+
+      // Insertar el contenido en el contenedor
+      root.innerHTML = blogContent;
+    })
+    .catch(error => {
+      console.error('Error al cargar el blog:', error);
+    });
+}
+
+function generateBlogContent(data) {
+  // Generar el contenido del blog a partir de los datos del archivo JSON
+  let blogHTML = '<h2>Blog</h2>';
+
+  // Recorrer los artículos del blog y generar el HTML correspondiente
+  data.articles.forEach(article => {
+    blogHTML += '<div class="article">';
+    blogHTML += `<h3>${article.title}</h3>`;
+    blogHTML += `<p>${article.content}</p>`;
+    blogHTML += '</div>';
+  });
+
+  return blogHTML;
+}
+
 function updateURL(section) {
   const currentURL = window.location.href;
   const baseURL = currentURL.split('#')[0]; // Obtener la parte base de la URL sin el fragmento
