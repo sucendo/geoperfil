@@ -40,6 +40,8 @@ function resetQuizState() {
 function showQuestion() {
   const question = quizQuestions[currentQuestionIndex];
 
+  clearQuizContainer();
+
   const questionElement = document.createElement('div');
   questionElement.classList.add('question');
   questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
