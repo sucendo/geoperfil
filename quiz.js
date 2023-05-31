@@ -9,12 +9,12 @@ let quizQuestions = []; // Preguntas para el juego actual
 let countdownTimer; // Temporizador de cuenta regresiva
 
 // Función para iniciar el juego
-function startGame() {
+function startGame(questions) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Obtener el contenido del archivo questions.js
-  fetch('kidsQuestions.js')
+  fetch(questions)
     .then(response => response.text())
     .then(data => {
       eval(data); // Ejecutar el código JavaScript de questions.js
