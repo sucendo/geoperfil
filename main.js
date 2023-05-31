@@ -5,16 +5,22 @@ function navigateTo(page) {
 
   if (page === 'home') {
     root.innerHTML = '<h1>Hola amig@</h1><object data="hombre.svg" type="image/svg+xml"></object>';
+    updateURL('home');
   } else if (page === 'about') {
-    root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';  
+    root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';
+    updateURL('about');
   } else if (page === 'quiz') {
     loadQuiz("questions.js");
+    updateURL('quiz');
   } else if (page === 'kids') {
     loadQuiz("questionsKids.js");
+    updateURL('kids');
   } else if (page === 'blog') {
-    root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';  
+    root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';
+    updateURL('blog');
   } else if (page === 'contact') {
     root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
+    updateURL('contact');
   }
 }
 
@@ -37,19 +43,14 @@ function loadQuiz(questionsFile) {
   });
 }
 
-// Función para cargar el contenido del quiz para niños en el contenedor
-/*
-function loadKids() {
-  const root = document.getElementById('root');
-  root.innerHTML = '';
+function updateURL(section) {
+  const currentURL = window.location.href;
+  const baseURL = currentURL.split('#')[0]; // Obtener la parte base de la URL sin el fragmento
 
-  // Cargar el archivo kidsQuiz.js de forma dinámica
-  loadScript('kidsQuiz.js', function() {
-    // Llamar a la función startGame del archivo kidsQuiz.js
-    startGame();
-  });
+  // Actualizar el fragmento de la URL con el nombre de la sección
+  const newURL = baseURL + '#' + section;
+  history.pushState(null, null, newURL);
 }
-*/
 
 // Manejo de eventos de navegación
 document.addEventListener('DOMContentLoaded', function() {
