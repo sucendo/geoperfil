@@ -1,4 +1,4 @@
-const kidsQuestions = [
+const allQuestions = [
   {
     question: "¿Cuántas patas tiene una araña?",
     options: ["4 patas", "6 patas", "8 patas", "10 patas"],
