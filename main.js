@@ -36,10 +36,10 @@ function loadQuiz(questions) {
   quizContainer.classList.add('quiz-container');
   root.appendChild(quizContainer);
 
-  // Cargar el archivo quiz.js de forma dinámica
+  // Cargar el archivo questions.js de forma dinámica
   loadScript(questions, function() {
-    // Llamar a la función startGame del archivo quiz.js
-    startGame(questions);
+    // Llamar a la función startGame del archivo quiz.js dentro de una función anónima
+    startGame(quizQuestions);
   });
 }
 
