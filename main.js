@@ -51,14 +51,11 @@ function loadBlog() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Cargar el archivo JSON de forma dinámica
-  loadScript('blog.json', function() {
-    // El archivo JSON estará disponible en el objeto global 'window'
+  // Cargar el archivo JavaScript de forma dinámica
+  loadScript('blog.js', function() {
+    // El objeto 'blogData' estará disponible desde el archivo 'blog.js'
 
-    // Obtener los datos del archivo JSON
-    const blogData = window.blogData;
-
-    // Generar el contenido del blog a partir de los datos del archivo JSON
+    // Generar el contenido del blog a partir de los datos
     const blogContent = generateBlogContent(blogData);
 
     // Insertar el contenido en el contenedor
