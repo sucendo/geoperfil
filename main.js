@@ -26,14 +26,14 @@ function loadScript(scriptPath, callback) {
   document.head.appendChild(script);
 }
 
-function loadQuiz(questions) {
+function loadQuiz(questionsFile) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
   // Cargar el archivo quiz.js de forma dinámica
-  loadScript(questions, function() {
+  loadScript(questionsFile, function() {
     // Llamar a la función startGame del archivo quiz.js
-    startGame(questions);
+    startGame(questionsFile);
   });
 }
 
