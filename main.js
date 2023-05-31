@@ -32,6 +32,8 @@ function loadScript(scriptPath, callback) {
   document.head.appendChild(script);
 }
 
+/** Quiz **/
+
 function loadQuiz(questionsFile) {
   const root = document.getElementById('root');
   root.innerHTML = '';
@@ -43,23 +45,22 @@ function loadQuiz(questionsFile) {
   });
 }
 
+/** Blog **/
+
 function loadBlog() {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Realizar una solicitud HTTP para obtener el archivo JSON
-  fetch('blog.json')
-    .then(response => response.json())
-    .then(data => {
-      // Generar el contenido del blog a partir de los datos del archivo JSON
-      const blogContent = generateBlogContent(data);
+  // Cargar el archivo JSON de forma dinámica
+  loadScript('blog.json', function() {
+    // El archivo JSON estará disponible en la variable global 'blogData'
 
-      // Insertar el contenido en el contenedor
-      root.innerHTML = blogContent;
-    })
-    .catch(error => {
-      console.error('Error al cargar el blog:', error);
-    });
+    // Generar el contenido del blog a partir de los datos del archivo JSON
+    const blogContent = generateBlogContent(blogData);
+
+    // Insertar el contenido en el contenedor
+    root.innerHTML = blogContent;
+  });
 }
 
 function generateBlogContent(data) {
@@ -76,6 +77,8 @@ function generateBlogContent(data) {
 
   return blogHTML;
 }
+
+/** Navegación **/
 
 function updateURL(section) {
   const currentURL = window.location.href;
