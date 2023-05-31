@@ -115,17 +115,30 @@ button:hover {
   font-weight: bold;
 }
 
-object {
-    width: 100%;
-    max-width: fit-content;
+.object {
+  width: 100%;
+  max-width: fit-content;
 }
 
 g#hombre {
-    fill: rgb(255 255 255 / 35%);
+  fill: rgb(255 255 255 / 35%);
+}
+
+/* Estilos para la barra de progreso */
+#progress-bar {
+  height: 10px;
+  background-color: #e0e0e0;
+  width: 100%;
+}
+
+#progress-bar-inner {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 1s ease-in-out;
 }
 
 /* Estilos responsivos para dispositivos móviles */
-
 @media screen and (max-width: 600px) {
   .container {
     padding: 10px;
@@ -135,8 +148,13 @@ g#hombre {
     padding: 10px;
   }
 
+  h3 {
+    font-size: 16px;
+  }
+
   button {
     padding: 8px 16px;
+    width: auto;
   }
 
   ul {
