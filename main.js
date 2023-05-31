@@ -38,6 +38,7 @@ function loadQuiz(questions) {
 }
 
 // Función para cargar el contenido del quiz para niños en el contenedor
+/*
 function loadKids() {
   const root = document.getElementById('root');
   root.innerHTML = '';
@@ -48,6 +49,7 @@ function loadKids() {
     startGame();
   });
 }
+*/
 
 // Manejo de eventos de navegación
 document.addEventListener('DOMContentLoaded', function() {
