@@ -5,7 +5,7 @@ function navigateTo(page) {
 
   if (page === 'home') {
     root.innerHTML = '<h1>Hola amig@</h1><object data="hombre.svg" type="image/svg+xml"></object>';
-    updateURL('home');
+    updateURL('');
   } else if (page === 'about') {
     root.innerHTML = '<h2>Acerca de</h2><p>Mi nombre es Sucendo.</p><p>Soy desarrollador informático.</p><p>He desarrollado este juego para mis 5 hijos.</p>';
     updateURL('about');
@@ -47,9 +47,9 @@ function updateURL(section) {
   const currentURL = window.location.href;
   const baseURL = currentURL.split('#')[0]; // Obtener la parte base de la URL sin el fragmento
 
-  // Actualizar el fragmento de la URL con el nombre de la sección
-  const newURL = baseURL + '#' + section;
-  history.pushState(null, null, newURL);
+  // Actualizar la URL reemplazando el fragmento con el nombre de la sección
+  const newURL = baseURL + (section ? '#' + section : '');
+  history.replaceState(null, null, newURL);
 }
 
 // Manejo de eventos de navegación
