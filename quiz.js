@@ -1,4 +1,8 @@
 // Elementos del DOM
+const headerElement = document.createElement('div');
+headerElement.classList.add('header');
+document.getElementById('root').appendChild(headerElement);
+
 const quizContainer = document.createElement('div');
 quizContainer.classList.add('quiz-container');
 document.getElementById('root').appendChild(quizContainer);
@@ -18,6 +22,10 @@ function startGame(questionsFile) {
     .then(response => response.text())
     .then(data => {
       eval(data); // Ejecutar el código JavaScript de questionsFile
+
+      const headerElement = document.createElement('div');
+      headerElement.classList.add('header');
+      root.appendChild(headerElement);
 
       const quizContainer = document.createElement('div');
       quizContainer.classList.add('quiz-container');
@@ -56,16 +64,25 @@ function startGame(questionsFile) {
       // Función para iniciar el temporizador de cuenta regresiva
       function startCountdown(countdownElement) {
         let timeRemaining = 10;
+        const totalTime = 10; // Duración total del temporizador
 
         countdownTimer = setInterval(function() {
           timeRemaining--;
           countdownElement.innerText = timeRemaining;
+          updateProgressBar(timeRemaining, totalTime); // Llamar a la función para actualizar la barra de progreso
 
           if (timeRemaining === 0) {
             clearInterval(countdownTimer);
             handleNext();
           }
         }, 1000);
+      }
+
+      // Función para actualizar la barra de progreso
+      function updateProgressBar(timeRemaining, totalTime) {
+        const progressBar = document.getElementById('progress-bar');
+        const progressWidth = (timeRemaining / totalTime) * 100; // Calcular el porcentaje de tiempo transcurrido
+        progressBar.style.width = progressWidth + '%';
       }
 
       // Función para reiniciar el temporizador de cuenta regresiva
