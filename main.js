@@ -1,4 +1,8 @@
-function navigateTo(page, pageTitle, url) {
+// Importar la biblioteca de enrutamiento page.js
+import page from 'page';
+
+// Función para cambiar de página
+function navigateTo(page) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
@@ -13,16 +17,8 @@ function navigateTo(page, pageTitle, url) {
   } else if (page === 'blog') {
     root.innerHTML = '<h2>Blog</h2><p>Este es mi blog dinámico</p><p></p><p></p>';  
   } else if (page === 'contact') {
-    loadContact(); // Cargar la página de contacto
-    pageTitle = 'Contacto'; // Actualizar el título de la página
-    url = 'https://sucendo.github.io/geoperfil/contacto'; // Actualizar la URL de la página
+    loadContact();
   }
-
-  // Actualizar el título de la página
-  document.title = pageTitle;
-
-  // Cambiar la URL sin recargar la página
-  history.pushState({ page: page }, pageTitle, url);
 }
 
 // Función para cargar un script de forma dinámica
@@ -46,33 +42,36 @@ function loadQuiz(questionsFile) {
 
 function loadContact() {
   const root = document.getElementById('root');
-  root.innerHTML = '';
-
-  // Aquí puedes agregar el contenido específico de la página de contacto
-  const contactContent = `
-    <h2>Contacto</h2>
-    <p>Esta es la página de contacto. Puedes utilizar el siguiente formulario para ponerte en contacto con nosotros:</p>
-    <form>
-      <!-- Aquí iría el formulario de contacto -->
-    </form>
-  `;
-
-  root.innerHTML = contactContent;
+  root.innerHTML = '<h2>Contacto</h2><p>Esta es la página de contacto. Pero...</p>';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const links = document.querySelectorAll('nav a');
-  links.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      const page = link.getAttribute('data-page');
-      const pageTitle = link.innerText; // Obtener el título de la página desde el texto del enlace
-      const url = link.getAttribute('href'); // Obtener la URL del enlace
-
-      navigateTo(page, pageTitle, url);
-    });
-  });
+// Configurar las rutas y el enrutamiento con page.js
+page('/', function() {
+  navigateTo('home');
 });
 
+page('/about', function() {
+  navigateTo('about');
+});
+
+page('/quiz', function() {
+  navigateTo('quiz');
+});
+
+page('/kids', function() {
+  navigateTo('kids');
+});
+
+page('/blog', function() {
+  navigateTo('blog');
+});
+
+page('/contact', function() {
+  navigateTo('contact');
+});
+
+// Iniciar el enrutamiento
+page();
+
 // Navegar a la página de inicio por defecto al cargar la página
-navigateTo('home', 'Inicio', '/');
+page('/');
