@@ -39,7 +39,7 @@ function loadQuiz(questions) {
   // Cargar el archivo questions.js de forma dinámica
   loadScript(questions, function() {
     // Llamar a la función startGame del archivo quiz.js dentro de una función anónima
-    startGame(quizQuestions);
+    startGame(questions);
   });
 }
 
