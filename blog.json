@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Mi primera entrada de blog",
+    "date": "2023-05-24",
+    "content": "<p>Este es el contenido de mi primera entrada de blog.</p>"
+  },
+  {
+    "title": "Mi segunda entrada de blog",
+    "date": "2023-05-25",
+    "content": "<p>Este es el contenido de mi segunda entrada de blog.</p>"
+  },
+  // Agrega más entradas de blog aquí
+]
