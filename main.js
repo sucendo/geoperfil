@@ -53,7 +53,10 @@ function loadBlog() {
 
   // Cargar el archivo JSON de forma dinámica
   loadScript('blog.json', function() {
-    // El archivo JSON estará disponible en la variable global 'blogData'
+    // El archivo JSON estará disponible en el objeto global 'window'
+
+    // Obtener los datos del archivo JSON
+    const blogData = window.blogData;
 
     // Generar el contenido del blog a partir de los datos del archivo JSON
     const blogContent = generateBlogContent(blogData);
