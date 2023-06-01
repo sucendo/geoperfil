@@ -1,4 +1,4 @@
-const blogData = {
+const articlesData = {
   articles: [
     {
       title: 'Explorando distancias cósmicas: Perspectivas de la verdad relativa en el universo',
