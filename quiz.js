@@ -30,6 +30,9 @@ function startGame(questionsFile) {
       function showQuestion() {
         const question = quizQuestions[currentQuestionIndex];
 
+        // Mezclar el orden de las opciones de respuesta
+        shuffleOptions(question);
+
         const questionElement = document.createElement('div');
         questionElement.classList.add('question');
         questionElement.innerHTML = `<h3>${currentQuestionIndex + 1}. ${question.question}</h3>`;
@@ -178,4 +181,19 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
+}
+
+// Función para mezclar el orden de las respuestas de una pregunta
+function shuffleOptions(question) {
+  const correctAnswer = question.correctAnswer;
+  const shuffledOptions = shuffleArray(question.options);
+  question.options = shuffledOptions;
+
+  // Encontrar el índice de la respuesta correcta
+  const correctIndex = shuffledOptions.findIndex(option => option === correctAnswer);
+
+  // Si se encuentra la respuesta correcta, intercambiarla con la primera opción
+  if (correctIndex !== -1) {
+    [question.options[0], question.options[correctIndex]] = [question.options[correctIndex], question.options[0]];
+  }
 }
