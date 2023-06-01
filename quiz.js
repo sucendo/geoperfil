@@ -154,7 +154,7 @@ function startGame(questionsFile) {
 
         const playAgainButton = document.createElement('button');
         playAgainButton.innerText = '¿Volver a jugar?';
-        playAgainButton.addEventListener('click', startGame);
+        playAgainButton.addEventListener('click', () => startGame(questionsFile));
         quizContainer.appendChild(playAgainButton);
       }
 
