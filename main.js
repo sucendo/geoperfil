@@ -56,7 +56,7 @@ function loadBlog() {
     // El objeto 'blogData' estará disponible desde el archivo 'blog.js'
 
     // Generar el contenido del blog a partir de los datos
-    const blogContent = generateBlogContent(blogData);
+    const blogContent = generateBlogContent(articlesData);
 
     // Insertar el contenido en el contenedor
     root.innerHTML = blogContent;
