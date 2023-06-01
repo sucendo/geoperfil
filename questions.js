@@ -686,13 +686,13 @@ const allQuestions = [
   },
   {
     question: '¿Quién es el autor de "El Gran Gatsby"?',
-    options: ['F. Scott Fitzgerald', 'Ernest Hemingway', 'Mark Twain', 'Harper Lee'],
-    correctAnswer: 0
+    options: ['Ernest Hemingway', 'Mark Twain', 'Harper Lee', 'F. Scott Fitzgerald'],
+    correctAnswer: 3
   },
   {
     question: '¿Cuál es el título de la primera novela de J.R.R. Tolkien ambientada en la Tierra Media?',
-    options: ['El Hobbit', 'El Silmarillion', 'La comunidad del anillo', 'Las dos torres'],
-    correctAnswer: 0
+    options: ['El Silmarillion', 'La comunidad del anillo', 'El Hobbit', 'Las dos torres'],
+    correctAnswer: 2
   },
   {
     question: '¿Quién escribió "Crónica de una muerte anunciada"?',
@@ -706,13 +706,13 @@ const allQuestions = [
   },
   {
     question: '¿Qué significa la sigla HTML?',
-    options: ['Hyper Text Markup Language', 'Home Tool Markup Language', 'Hyperlinks and Text Markup Language', 'Highly Technical Markup Language'],
-    correctAnswer: 0
+    options: ['Home Tool Markup Language', 'Hyper Text Markup Language', 'Hyperlinks and Text Markup Language', 'Highly Technical Markup Language'],
+    correctAnswer: 1
   },
   {
     question: '¿Cuál de los siguientes lenguajes de programación es orientado a objetos?',
-    options: ['Java', 'C', 'Python', 'HTML'],
-    correctAnswer: 0
+    options: ['C', 'Python', 'Java', 'HTML'],
+    correctAnswer: 2
   },
   {
     question: '¿Cuál es el sistema operativo móvil desarrollado por Google?',
