@@ -52,7 +52,7 @@ function loadBlog() {
   root.innerHTML = '';
 
   // Cargar el archivo JavaScript de forma dinámica
-  loadScript('blog.js', function() {
+  loadScript('articles.js', function() {
     // El objeto 'blogData' estará disponible desde el archivo 'blog.js'
 
     // Generar el contenido del blog a partir de los datos
