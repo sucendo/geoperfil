@@ -193,8 +193,9 @@ function shuffleOptions(question) {
 
   if (correctIndex !== -1) {
     // Mezclar las opciones de respuesta manteniendo el índice de la respuesta correcta
-    const correctOption = shuffledOptions.splice(correctIndex, 1)[0];
-    const randomIndex = Math.floor(Math.random() * (shuffledOptions.length + 1));
+    const correctOption = shuffledOptions[correctIndex];
+    shuffledOptions.splice(correctIndex, 1);
+    const randomIndex = Math.floor(Math.random() * shuffledOptions.length);
     shuffledOptions.splice(randomIndex, 0, correctOption);
 
     // Actualizar el índice de la respuesta correcta
@@ -203,5 +204,3 @@ function shuffleOptions(question) {
 
   question.options = shuffledOptions;
 }
-
-
