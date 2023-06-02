@@ -192,10 +192,15 @@ function shuffleOptions(question) {
   const correctIndex = question.options.findIndex(option => option === correctAnswer);
 
   if (correctIndex !== -1) {
-    // Actualizar la respuesta correcta con la opción mezclada correspondiente
-    question.correctAnswer = shuffledOptions.findIndex(option => option === correctAnswer);
-    [shuffledOptions[correctIndex], shuffledOptions[question.correctAnswer]] = [shuffledOptions[question.correctAnswer], shuffledOptions[correctIndex]];
+    // Mezclar las opciones de respuesta manteniendo el índice de la respuesta correcta
+    const correctOption = shuffledOptions.splice(correctIndex, 1)[0];
+    shuffleArray(shuffledOptions);
+    shuffledOptions.unshift(correctOption);
+
+    // Actualizar el índice de la respuesta correcta
+    question.correctAnswer = 0;
   }
 
   question.options = shuffledOptions;
 }
+
