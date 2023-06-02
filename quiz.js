@@ -194,13 +194,14 @@ function shuffleOptions(question) {
   if (correctIndex !== -1) {
     // Mezclar las opciones de respuesta manteniendo el índice de la respuesta correcta
     const correctOption = shuffledOptions.splice(correctIndex, 1)[0];
-    shuffleArray(shuffledOptions);
-    shuffledOptions.unshift(correctOption);
+    const randomIndex = Math.floor(Math.random() * (shuffledOptions.length + 1));
+    shuffledOptions.splice(randomIndex, 0, correctOption);
 
     // Actualizar el índice de la respuesta correcta
-    question.correctAnswer = 0;
+    question.correctAnswer = randomIndex;
   }
 
   question.options = shuffledOptions;
 }
+
 
