@@ -13,11 +13,13 @@ function startGame(questionsFile) {
   const root = document.getElementById('root');
   root.innerHTML = '';
 
-  // Obtener el contenido del archivo proporcionado por la variable questionsFile
-  fetch(questionsFile)
-    .then(response => response.text())
-    .then(data => {
-      eval(data); // Ejecutar el código JavaScript de questionsFile
+  // Obtener las preguntas según el archivo seleccionado
+  const selectedQuestions = questionsFile.includes('questionsKids.js')
+    ? window.questionsKids
+    : window.questions;
+
+  quizQuestions = getRandomQuestions(selectedQuestions, 10); // Obtener 10 preguntas aleatorias
+
 
       const quizContainer = document.createElement('div');
       quizContainer.classList.add('quiz-container');
@@ -168,8 +170,8 @@ function startGame(questionsFile) {
 }
 
 // Función para obtener un conjunto de preguntas aleatorias
-function getRandomQuestions(count) {
-  const availableQuestions = allQuestions.filter((question) => !question.used);
+function getRandomQuestions(questions, count) {
+  const availableQuestions = questions.filter((question) => !question.used);
   const shuffledQuestions = shuffleArray(availableQuestions);
   return shuffledQuestions.slice(0, count);
 }
