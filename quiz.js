@@ -188,14 +188,14 @@ function shuffleOptions(question) {
   const correctAnswer = question.correctAnswer;
   const shuffledOptions = shuffleArray(question.options);
 
-  // Encontrar el índice de la respuesta correcta antes de mezclar las opciones
+  // Obtener el índice de la respuesta correcta antes de la mezcla
   const correctIndex = question.options.findIndex(option => option === correctAnswer);
 
   if (correctIndex !== -1) {
-    // Mezclar las opciones de respuesta manteniendo el índice de la respuesta correcta
+    // Mezclar las opciones manteniendo el índice de la respuesta correcta
     const correctOption = shuffledOptions[correctIndex];
     shuffledOptions.splice(correctIndex, 1);
-    const randomIndex = Math.floor(Math.random() * shuffledOptions.length);
+    const randomIndex = Math.floor(Math.random() * (shuffledOptions.length + 1));
     shuffledOptions.splice(randomIndex, 0, correctOption);
 
     // Actualizar el índice de la respuesta correcta
@@ -204,3 +204,4 @@ function shuffleOptions(question) {
 
   question.options = shuffledOptions;
 }
+
