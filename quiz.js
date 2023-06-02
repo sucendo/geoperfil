@@ -187,13 +187,14 @@ function shuffleArray(array) {
 function shuffleOptions(question) {
   const correctAnswer = question.correctAnswer;
   const shuffledOptions = shuffleArray(question.options);
-  question.options = shuffledOptions;
-
-  // Encontrar el índice de la respuesta correcta
   const correctIndex = shuffledOptions.findIndex(option => option === correctAnswer);
 
-  // Si se encuentra la respuesta correcta, intercambiarla con la primera opción
   if (correctIndex !== -1) {
-    [question.options[0], question.options[correctIndex]] = [question.options[correctIndex], question.options[0]];
+    // Intercambiar la respuesta correcta con la opción actualmente en la posición 0
+    [shuffledOptions[0], shuffledOptions[correctIndex]] = [shuffledOptions[correctIndex], shuffledOptions[0]];
   }
+
+  question.options = shuffledOptions;
+  question.correctAnswer = 0; // Actualizar el índice de la respuesta correcta a 0
 }
+
