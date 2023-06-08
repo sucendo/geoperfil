@@ -753,5 +753,80 @@ const allQuestions = [
     question: '¿Cuál de los siguientes dispositivos es conocido por ser un asistente virtual desarrollado por Amazon?',
     options: ['Amazon Echo', 'Google Home', 'Apple HomePod', 'Microsoft Cortana'],
     correctAnswer: 0
+  },
+  {
+    question: '¿Qué significa la sigla CSS?',
+    options: ['Cascading Style Sheets', 'Computer Style Sheets', 'Creative Style Sheets', 'Colorful Style Sheets'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál de los siguientes lenguajes de programación es de tipado dinámico?',
+    options: ['JavaScript', 'Java', 'C#', 'C++'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el componente principal de un ordenador?',
+    options: ['CPU (Unidad Central de Procesamiento)', 'GPU (Unidad de Procesamiento Gráfico)', 'RAM (Memoria de Acceso Aleatorio)', 'HDD (Disco Duro)'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién es el creador del sistema operativo Linux?',
+    options: ['Linus Torvalds', 'Bill Gates', 'Steve Jobs', 'Mark Zuckerberg'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es el videojuego más vendido de todos los tiempos?',
+    options: ['Minecraft', 'Tetris', 'Grand Theft Auto V', 'PlayerUnknown\'s Battlegrounds'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién dirigió la película "Pulp Fiction"?',
+    options: ['Quentin Tarantino', 'Martin Scorsese', 'Steven Spielberg', 'Christopher Nolan'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál de las siguientes películas ganó el Óscar a la Mejor Película en 2020?',
+    options: ['Parasite', '1917', 'Joker', 'Once Upon a Time in Hollywood'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la película más taquillera de todos los tiempos?',
+    options: ['Avengers: Endgame', 'Avatar', 'Titanic', 'Star Wars: El despertar de la fuerza'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién interpreta el papel de Iron Man en el Universo Cinematográfico de Marvel?',
+    options: ['Robert Downey Jr.', 'Chris Evans', 'Chris Hemsworth', 'Mark Ruffalo'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la trilogía de películas dirigida por Christopher Nolan?',
+    options: ['El Caballero Oscuro', 'El Señor de los Anillos', 'El Padrino', 'Volver al Futuro'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién es el director de la película "El Padrino"?',
+    options: ['Francis Ford Coppola', 'Steven Spielberg', 'Martin Scorsese', 'Alfred Hitchcock'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la película animada de Disney número 50?',
+    options: ['Enredados', 'Frozen', 'Moana', 'Zootopia'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién interpreta el papel de Neo en la trilogía de "Matrix"?',
+    options: ['Keanu Reeves', 'Tom Cruise', 'Brad Pitt', 'Leonardo DiCaprio'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuál es la película de Steven Spielberg sobre un parque temático con dinosaurios?',
+    options: ['Jurassic Park', 'E.T. el extraterrestre', 'Tiburón', 'Indiana Jones y los cazadores del arca perdida'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Quién dirigió la película "El resplandor"?',
+    options: ['Stanley Kubrick', 'David Fincher', 'Wes Anderson', 'Quentin Tarantino'],
+    correctAnswer: 0
   }
 ];
