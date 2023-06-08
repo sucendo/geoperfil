@@ -533,7 +533,8 @@ const allQuestions = [
     question: '¿El verbo "aprender" es regular o irregular?',
     options: ['Regular', 'Irregular', 'No lo sé', 'Ambas'],
     correctAnswer: 1
-  },{
+  },
+  {
     question: '¿Cuál fue la capital del Imperio Romano durante la mayor parte de su existencia?',
     options: ['Roma', 'Atenas', 'Cartago', 'Constantinopla'],
     correctAnswer: 0
@@ -620,17 +621,12 @@ const allQuestions = [
   },
   {
     question: 'Completa la frase: "How are ___?"',
-    options: ['you', 'we', 'they', 'I'],
+    options: ['you', 'he', 'it', 'I'],
     correctAnswer: 0
   },
   {
     question: '¿Qué significa "goodbye" en español?',
     options: ['Adiós', 'Hola', 'Por favor', 'Gracias'],
-    correctAnswer: 0
-  },
-  {
-    question: 'Completa la frase: "I like ___"',
-    options: ['dogs', 'cats', 'birds', 'fish'],
     correctAnswer: 0
   },
   {
@@ -640,7 +636,7 @@ const allQuestions = [
   },
   {
     question: 'Completa la frase: "My favorite color is ___"',
-    options: ['blue', 'red', 'green', 'yellow'],
+    options: ['blue', 'eat', 'run', 'car'],
     correctAnswer: 0
   },
   {
@@ -650,7 +646,7 @@ const allQuestions = [
   },
   {
     question: 'Completa la frase: "I have ___"',
-    options: ['a dog', 'a cat', 'a bird', 'a fish'],
+    options: ['a dog', 'dog', 'I', 'favourite'],
     correctAnswer: 0
   },
   {
@@ -660,22 +656,17 @@ const allQuestions = [
   },
   {
     question: 'Completa la frase: "I can ___"',
-    options: ['run', 'swim', 'jump', 'dance'],
+    options: ['run', 'car', 'ball', 'men'],
     correctAnswer: 0
   },
   {
-    question: 'Completa la frase: "My name ___"',
+    question: 'Completa la frase: "My name ___ Mary"',
     options: ['is', 'am', 'are', 'be'],
     correctAnswer: 0
   },
   {
     question: '¿Qué significa "cat" en español?',
     options: ['Gato', 'Perro', 'Pájaro', 'Pez'],
-    correctAnswer: 0
-  },
-  {
-    question: 'Completa la frase: "I ___ a book"',
-    options: ['have', 'has', 'had', 'having'],
     correctAnswer: 0
   },
   {
