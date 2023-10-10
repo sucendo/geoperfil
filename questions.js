@@ -776,8 +776,8 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es el videojuego más vendido de todos los tiempos?',
-    options: ['Minecraft', 'Tetris', 'Grand Theft Auto V', 'PlayerUnknown\'s Battlegrounds'],
-    correctAnswer: 0
+    options: ['Tetris', 'Grand Theft Auto V', 'Minecraft', 'PlayerUnknown\'s Battlegrounds'],
+    correctAnswer: 2
   },
   {
     question: '¿Quién dirigió la película "Pulp Fiction"?',
@@ -811,22 +811,22 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es la película animada de Disney número 50?',
-    options: ['Enredados', 'Frozen', 'Moana', 'Zootopia'],
-    correctAnswer: 0
+    options: ['Frozen', 'Enredados', 'Moana', 'Zootopia'],
+    correctAnswer: 1
   },
   {
     question: '¿Quién interpreta el papel de Neo en la trilogía de "Matrix"?',
-    options: ['Keanu Reeves', 'Tom Cruise', 'Brad Pitt', 'Leonardo DiCaprio'],
-    correctAnswer: 0
+    options: ['Tom Cruise', 'Brad Pitt', 'Keanu Reeves', 'Leonardo DiCaprio'],
+    correctAnswer: 2
   },
   {
     question: '¿Cuál es la película de Steven Spielberg sobre un parque temático con dinosaurios?',
-    options: ['Jurassic Park', 'E.T. el extraterrestre', 'Tiburón', 'Indiana Jones y los cazadores del arca perdida'],
-    correctAnswer: 0
+    options: ['E.T. el extraterrestre', 'Tiburón', 'Indiana Jones y los cazadores del arca perdida', 'Jurassic Park'],
+    correctAnswer: 3
   },
   {
     question: '¿Quién dirigió la película "El resplandor"?',
-    options: ['Stanley Kubrick', 'David Fincher', 'Wes Anderson', 'Quentin Tarantino'],
-    correctAnswer: 0
+    options: ['David Fincher', 'Stanley Kubrick', 'Wes Anderson', 'Quentin Tarantino'],
+    correctAnswer: 1
   }
 ];
