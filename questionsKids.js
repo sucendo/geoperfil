@@ -713,5 +713,50 @@ const allQuestions = [
     question: 'What is the process by which water changes from a liquid to a gas called?',
     options: ['Condensation', 'Evaporation', 'Precipitation', 'Sublimation'],
     correctAnswer: 1
+  },
+  {
+    question: "¿Cuál es el proceso mediante el cual las plantas producen su propio alimento utilizando la luz solar?",
+    options: ["Fotosíntesis", "Respiración", "Transpiración", "Germinación"],
+    correctAnswer: 0
+  },  
+  {
+    question: "¿Qué gas absorben las plantas de la atmósfera durante la fotosíntesis?",
+    options: ["Oxígeno", "Dióxido de carbono", "Nitrógeno", "Hidrógeno"],
+    correctAnswer: 1
+  },  
+  {
+    question: "¿Qué pigmento le da a las plantas su color verde y es esencial para la fotosíntesis?",
+    options: ["Clorofila", "Caroteno", "Melanina", "Hemoglobina"],
+    correctAnswer: 0
+  },  
+  {
+    question: "¿En qué parte de una planta ocurre la mayoría de la fotosíntesis?",
+    options: ["Raíces", "Tallo", "Hojas", "Flores"],
+    correctAnswer: 2
+  },
+  {
+  question: "¿Qué parte de la planta se utiliza comúnmente para almacenar alimentos?",
+  options: ["Hojas", "Tallo", "Raíces", "Flores"],
+  correctAnswer: 2
+  },  
+  {
+    question: "¿Cuál es el proceso mediante el cual las plantas liberan vapor de agua a través de pequeños orificios en las hojas?",
+    options: ["Fotosíntesis", "Respiración", "Transpiración", "Germinación"],
+    correctAnswer: 2
+  },  
+  {
+    question: "¿Cuál de los siguientes no es un tipo de planta vascular?",
+    options: ["Musgo", "Helecho", "Pino", "Rosa"],
+    correctAnswer: 0
+  },  
+  {
+    question: "¿Cuál es el nombre de la sustancia cerosa que ayuda a prevenir la pérdida de agua en las hojas de algunas plantas?",
+    options: ["Clorofila", "Cutícula", "Xilema", "Florema"],
+    correctAnswer: 1
+  },  
+  {
+    question: "¿Qué proceso es responsable de la reproducción de muchas plantas a través de la transferencia de polen?",
+    options: ["Fotosíntesis", "Polinización", "Germinación", "Transpiración"],
+    correctAnswer: 1
   }
 ];
