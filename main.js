@@ -70,7 +70,7 @@ function generateBlogContent(data) {
   // Recorrer los artículos del blog y generar el HTML correspondiente
   data.articles.forEach(article => {
     blogHTML += '<div class="article">';
-    blogHTML += `<h3>${article.title}</h3>`;
+    blogHTML += `<h1>${article.title}</h1>`;
     blogHTML += `<p>${article.content}</p>`;
     blogHTML += '</div>';
   });
