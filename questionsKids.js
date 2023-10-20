@@ -81,8 +81,8 @@ const allQuestions = [
   },
   {
     question: "¿Cuál es el animal más grande del mundo?",
-    options: ["Elefante", "Ballena azul", "Jirafa", "Hipopótamo"],
-    correctAnswer: 1
+    options: ["Elefante", "Jirafa", "Ballena azul", "Hipopótamo"],
+    correctAnswer: 2
   },
   {
     question: "¿Cuántos dientes de leche tiene un niño?",
@@ -266,8 +266,8 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es la moneda utilizada en España?',
-    options: ['Euro', 'Dólar', 'Libra', 'Yen'],
-    correctAnswer: 0
+    options: ['Dólar', 'Libra', 'Euro', 'Yen'],
+    correctAnswer: 2
   },
   {
     question: '¿Qué océano baña las costas de España al oeste?',
@@ -286,8 +286,8 @@ const allQuestions = [
   },
   {
     question: '¿Cuál es el río más largo de la Península Ibérica?',
-    options: ['Río Tajo', 'Río Ebro', 'Río Duero', 'Río Guadalquivir'],
-    correctAnswer: 0
+    options: ['Río Ebro', 'Río Duero', 'Río Tajo', 'Río Guadalquivir'],
+    correctAnswer: 2
   },
   {
     question: '¿Cuál es el clima predominante en la mayor parte de España?',
@@ -341,8 +341,8 @@ const allQuestions = [
   },
   {
     question: '¿Cuántos centímetros hay en un metro?',
-    options: ['100', '10', '1', '0.01'],
-    correctAnswer: 0
+    options: ['10', '100', '1', '0.01'],
+    correctAnswer: 1
   },
   {
     question: '¿Cuántos litros hay en un decilitro?',
@@ -536,8 +536,8 @@ const allQuestions = [
   },
   {
     question: '¿Cuál fue la capital del Imperio Romano durante la mayor parte de su existencia?',
-    options: ['Roma', 'Atenas', 'Cartago', 'Constantinopla'],
-    correctAnswer: 0
+    options: ['Atenas', 'Roma', 'Cartago', 'Constantinopla'],
+    correctAnswer: 1
   },
   {
     question: '¿Qué tipo de gobierno tenía el Imperio Romano?',
@@ -656,8 +656,8 @@ const allQuestions = [
   },
   {
     question: 'Completa la frase: "I can ___"',
-    options: ['run', 'car', 'ball', 'men'],
-    correctAnswer: 0
+    options: ['car', 'ball', 'men', 'run'],
+    correctAnswer: 3
   },
   {
     question: 'Completa la frase: "My name ___ Mary"',
