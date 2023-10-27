@@ -758,5 +758,155 @@ const allQuestions = [
     question: "¿Qué proceso es responsable de la reproducción de muchas plantas a través de la transferencia de polen?",
     options: ["Fotosíntesis", "Polinización", "Germinación", "Transpiración"],
     correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "What is your favorite color? My favorite color ___ blue."',
+    options: ['is', 'am', 'has', 'have'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "I ___ a book in the library."',
+    options: ['is', 'have', 'am', 'has'],
+    correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "They ___ to the park every weekend."',
+    options: ['have', 'am', 'has', 'is'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "She ___ a lovely dog."',
+    options: ['is', 'am', 'have', 'has'],
+    correctAnswer: 2
+  },
+  {
+    question: 'Completa la frase: "My brother ___ a bicycle."',
+    options: ['have', 'has', 'is', 'am'],
+    correctAnswer: 3
+  },
+  {
+    question: 'Completa la frase: "The cat ___ on the chair."',
+    options: ['am', 'have', 'has', 'is'],
+    correctAnswer: 3
+  },
+  {
+    question: 'Completa la frase: "I ___ some delicious cookies."',
+    options: ['am', 'have', 'is', 'has'],
+    correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "It ___ a sunny day."',
+    options: ['is', 'have', 'has', 'am'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "My friends ___ a big house."',
+    options: ['have', 'am', 'is', 'has'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "We ___ a fun party."',
+    options: ['am', 'is', 'have', 'has'],
+    correctAnswer: 2
+  },
+  {
+    question: 'Completa la frase: "The bird ___ in the sky."',
+    options: ['is', 'am', 'has', 'have'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "My sister ___ a beautiful flower."',
+    options: ['have', 'has', 'am', 'is'],
+    correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "We ___ a big family."',
+    options: ['is', 'have', 'am', 'has'],
+    correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "The sun ___ very hot."',
+    options: ['is', 'have', 'am', 'has'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "My favorite color ___ green."',
+    options: ['am', 'have', 'has', 'is'],
+    correctAnswer: 3
+  },
+  {
+    question: 'Completa la frase: "The fish ___ in the water."',
+    options: ['is', 'have', 'am', 'has'],
+    correctAnswer: 0
+  },
+  {
+    question: 'Completa la frase: "My parents ___ a car."',
+    options: ['is', 'have', 'am', 'has'],
+    correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "The dog ___ a bone."',
+    options: ['have', 'has', 'is', 'am'],
+    correctAnswer: 2
+  },
+  {
+    question: 'Completa la frase: "I ___ a new toy."',
+    options: ['am', 'have', 'is', 'has'],
+    correctAnswer: 1
+  },
+  {
+    question: 'Completa la frase: "The moon ___ at night."',
+    options: ['is', 'have', 'am', 'has'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuánto es 6 x 7?',
+    options: ['42', '35', '49', '56'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuánto es 8 x 4?',
+    options: ['32', '12', '48', '16'],
+    correctAnswer: 3
+  },
+  {
+    question: '¿Cuánto es 9 x 3?',
+    options: ['21', '36', '27', '45'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuánto es 5 x 9?',
+    options: ['45', '15', '54', '25'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuánto es 3 x 8?',
+    options: ['24', '6', '15', '32'],
+    correctAnswer: 3
+  },
+  {
+    question: '¿Cuánto es 7 x 6?',
+    options: ['42', '56', '36', '48'],
+    correctAnswer: 1
+  },
+  {
+    question: '¿Cuánto es 4 x 7?',
+    options: ['28', '16', '49', '21'],
+    correctAnswer: 2
+  },
+  {
+    question: '¿Cuánto es 2 x 9?',
+    options: ['18', '5', '11', '27'],
+    correctAnswer: 0
+  },
+  {
+    question: '¿Cuánto es 6 x 8?',
+    options: ['48', '54', '36', '64'],
+    correctAnswer: 1
+  },
+  {
+    question: '¿Cuánto es 9 x 7?',
+    options: ['63', '81', '72', '54'],
+    correctAnswer: 2
   }
 ];
