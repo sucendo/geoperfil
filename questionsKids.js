@@ -867,7 +867,7 @@ const allQuestions = [
   {
     question: '¿Cuánto es 8 x 4?',
     options: ['32', '12', '48', '16'],
-    correctAnswer: 3
+    correctAnswer: 0
   },
   {
     question: '¿Cuánto es 9 x 3?',
