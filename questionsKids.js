@@ -777,7 +777,7 @@ const allQuestions = [
   {
     question: 'Completa la frase: "She ___ a lovely dog."',
     options: ['is', 'am', 'have', 'has'],
-    correctAnswer: 2
+    correctAnswer: 3
   },
   {
     question: 'Completa la frase: "My brother ___ a bicycle."',
