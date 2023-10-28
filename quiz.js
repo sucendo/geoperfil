@@ -47,7 +47,7 @@ function startGame(questionsFile) {
 
         const countdownElement = document.createElement('div');
         countdownElement.classList.add('countdown');
-        countdownElement.innerText = '10';
+        countdownElement.innerText = '20';
         questionElement.appendChild(countdownElement);
 
         startCountdown(countdownElement);
