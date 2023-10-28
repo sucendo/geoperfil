@@ -58,7 +58,7 @@ function startGame(questionsFile) {
 
       // Función para iniciar el temporizador de cuenta regresiva
       function startCountdown(countdownElement) {
-        let timeRemaining = 10;
+        let timeRemaining = 20;
 
         countdownTimer = setInterval(function() {
           timeRemaining--;
